@@ -1,0 +1,16 @@
+<div class="conainer-fluid">
+  <h6>My Trip</h6>
+  <div class="nav-tab">
+    <div class="nav-tabhead">
+      <a class="nav-tab-item active">Completed</a>
+      <a [routerLink]="['/user/page/upcoming-trips']"  class="nav-tab-item">Upcoming</a>
+    </div>
+    <div class="nav-container">
+      <div class="row">
+        <div class="col-md-6">
+          <app-tripbox></app-tripbox>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

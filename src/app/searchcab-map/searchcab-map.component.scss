@@ -1,0 +1,117 @@
+@import '../../styles.scss';
+
+.searchbox{
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px #30303033;
+  padding: 20px;
+  .field-group{
+    position: relative;
+    border-bottom: solid 1px #F6F6F6;
+    padding-right: 27px;
+    margin-bottom: 0;
+    &.no-licon{
+      padding-right: 0;
+    }
+    .form-label{
+      font-size: var(--font-12);
+      color: #D6D6D6;
+      font-weight: 300;
+    }
+    .btn-icon{
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      border: none;
+      background: none;
+      width: 20px;
+      height: 18px;
+      z-index: 1;
+      box-shadow: none;
+      transition: all 0.3s ease-in-out;
+      &:focus{
+        outline: none;
+        box-shadow: none;;
+      }
+      .icon{
+        font-size: 23px;
+        color: #D6D6D6;
+      }
+      &.active,
+      &:hover{
+        .icon{
+          color: var(--green);
+        }
+      }
+    }
+    .form-control{
+      border: none;
+      font-size: var(--font-16);
+      color: var(--title-color);
+      font-weight: bold;
+      height: auto;
+      padding-left: 0;
+      &:focus{
+        box-shadow: none;
+        outline: none;
+      }
+      &:disabled{
+        background: none;
+        border: none;
+      }
+      &.text-green{
+        color: var(--green);
+      }
+    }
+  }
+
+  .btn-dropdown{
+    .btn{
+      padding: 9px 20px 10px 45px;
+      &:focus{
+        outline: none;
+      }
+      &.full{
+        width: 100%;
+      }
+      .icon{
+        position: absolute;
+        left: 20px;
+        top: 17px;
+      }
+    }
+  }
+
+  .cabtype{
+    .cabtype-label{
+      font-size: var(--font-12);
+      font-weight: 400;
+    }
+    .cabtype-info{
+      position: relative;
+      .cabtype-figure{
+        width: 100px;
+        float: left;
+        .cabtype-icon{
+          width: 70px;
+          margin: 0 auto 0px;
+        }
+        .reachtime{
+          font-size: var(--font-16);
+          font-weight: 500;
+          margin-top: -15px;
+        }
+      }
+      .cabtype-txt{
+        padding-top: 15px;
+        margin-left: 105px;
+        .cab-feature{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+}

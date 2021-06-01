@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="75" height="67.209" viewBox="0 0 75 67.209">
+  <g id="icon-delivery-truck" transform="translate(0 -30.002)">
+    <path id="Path_64" data-name="Path 64" d="M325.419,266.894l-4.267-3.981,1.593-3.982-1.476-4.395H300.783l2.93,26.454h28.01V270.006Z" transform="translate(-256.723 -191.643)" fill="#ffda44"/>
+    <circle id="Ellipse_8" data-name="Ellipse 8" cx="6.866" cy="6.866" r="6.866" transform="translate(54.129 82.481)" fill="#03232e"/>
+    <circle id="Ellipse_9" data-name="Ellipse 9" cx="2.471" cy="2.471" r="2.471" transform="translate(58.524 86.876)" fill="#b4d2d7"/>
+    <path id="Path_65" data-name="Path 65" d="M350.787,284.538h4.395V292.5h-4.395Z" transform="translate(-299.402 -217.25)" fill="#0b799d"/>
+    <path id="Path_66" data-name="Path 66" d="M410.79,284.538V292.5h8.522l-2.674-7.963Z" transform="translate(-350.616 -217.25)" fill="#07485e"/>
+    <path id="Path_67" data-name="Path 67" d="M248.419,180.175h-9.49L236,193.866l2.93,23.656h9.49Z" transform="translate(-201.429 -128.175)" fill="#ffb655"/>
+    <path id="Path_68" data-name="Path 68" d="M0,180.175H37.5v37.347H0Z" transform="translate(0 -128.175)" fill="#ffda44"/>
+    <path id="Path_69" data-name="Path 69" d="M238.929,30,236,44.785l2.93,20.906,10.453-10.453A14.783,14.783,0,0,0,238.929,30Z" transform="translate(-201.429)" fill="#e50058"/>
+    <path id="Path_70" data-name="Path 70" d="M155.083,44.785a14.737,14.737,0,0,0,4.33,10.453l10.453,10.453V30A14.783,14.783,0,0,0,155.083,44.785Z" transform="translate(-132.366 0)" fill="#ff415b"/>
+    <path id="Path_71" data-name="Path 71" d="M238.929,60,236,70.391l2.93,10.389a10.389,10.389,0,1,0,0-20.777Z" transform="translate(-201.429 -25.605)" fill="#ff415b"/>
+    <path id="Path_72" data-name="Path 72" d="M185.081,70.391A10.4,10.4,0,0,0,195.47,80.779V60A10.4,10.4,0,0,0,185.081,70.391Z" transform="translate(-157.97 -25.605)" fill="#ff7c48"/>
+    <path id="Path_73" data-name="Path 73" d="M244.923,96A6,6,0,0,0,238.929,90L236,96l2.93,5.994A6,6,0,0,0,244.923,96Z" transform="translate(-201.429 -51.211)" fill="#e1ebf0"/>
+    <path id="Path_74" data-name="Path 74" d="M215.081,96a6,6,0,0,0,5.994,5.994V90A6,6,0,0,0,215.081,96Z" transform="translate(-183.575 -51.211)" fill="#fff5f5"/>
+    <ellipse id="Ellipse_10" data-name="Ellipse 10" cx="6.866" cy="6.866" rx="6.866" ry="6.866" transform="matrix(0.16, -0.987, 0.987, 0.16, 6.122, 95.014)" fill="#07485e"/>
+    <path id="Path_75" data-name="Path 75" d="M81.209,418.26a2.471,2.471,0,1,0,2.471,2.471A2.474,2.474,0,0,0,81.209,418.26Z" transform="translate(-67.204 -331.384)" fill="#e1ebf0"/>
+  </g>
+</svg>

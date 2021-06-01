@@ -1,0 +1,28 @@
+@media(max-width: 991px){
+    :root{
+        --font-12: 12px;
+        --font-16: 16px;
+        --font-14: 14px;
+        --font-20: 20px;
+        --font-40: 36px;
+        --w-550: 550px;
+        --w-393: 393px;
+    }
+    .login-register-wrap,
+    .login-register-wrap .login-register-left,
+    .login-register-wrap .login-register-right{
+        min-height: 2px;
+    }
+
+    .login-register-wrap .login-register-right,
+    .login-register-wrap .login-register-right .copyright{
+        display: block;
+        text-align: center;
+        
+    }
+
+    .login-register-wrap .login-register-right .login-register-right-in{
+        display: inline-block;
+        text-align: left;
+    }
+}

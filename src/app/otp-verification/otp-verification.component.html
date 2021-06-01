@@ -1,0 +1,39 @@
+<div class="login-register-wrap container-fluid">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <!-- <div class="col-lg-6 login-register-left">
+             <div class="login-register-left-in">
+                <figure class="logo text-center">
+                    <img src="assets/images/logo.jpg" alt="logo" />
+                </figure>
+            </div> 
+        </div> -->
+        <div class="col-lg-6  login-register-right">
+            <div class="login-register-right-in">
+                <div class="login-register-title">
+                    <h1>Enter OTP <small class="mt-1">Enter OTP which we sent you  <br /><strong></strong></small></h1>
+                </div>
+                <div class="login-register-action">
+                    
+                    <form [formGroup]="otpForm" (submit)="verification()">
+                        <div class="otp-wrap">
+                            <div class="otp-box">
+                                <input type="text"(keypress)="numberOnly($event)" formControlName="password" class="form-control mobilenumber" />
+                                <span class="error-notification" *ngIf="otpForm.controls['password'].hasError('required') && isSubmited">(Otp is required)</span>
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-green d-block full-width">Login</button>
+                        </div>
+                    
+                    </form>
+                    
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; 2020 - totalcab
+            </div>
+        </div>
+    </div>
+</div>

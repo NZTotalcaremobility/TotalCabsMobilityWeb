@@ -1,0 +1,141 @@
+<app-top-header></app-top-header>
+
+<!-- MAIN -->
+<section class="banner">
+    <!-- BANNER HEADER -->
+    <app-second-menu></app-second-menu>
+    <!-- /BANNER HEADER -->
+    <div class="sld1 min-het banner-overly" style="background-image: url(../../assets/images/Servicesphoto.jpg);">
+        <div class="carousel-caption crsl-mdl">
+            <h2>
+                Contact Us
+            </h2>
+        </div>
+    </div>
+</section>
+<!-- /MAIN -->
+
+<section class="sec-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-5 col-xl-5">
+                <div class="bg-light-green rounded-lg border p-4">
+                    <div class="d-flex flex-column flex-xl-row">
+                        <div class="mb-2">
+                            <strong class="m-0 text-capitalize"><i class="fa fa-address-book-o"></i> general enquiries
+                                :</strong>
+                        </div>
+                        <div class="pl-3 mb-2">
+                            <p class="m-0">
+                                <a href="mailto:admin@totalcaremobility.co.nz">
+                                    admin@totalcaremobility.co.nz
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="mt-2 mb-2">
+                    <div class="d-flex">
+                        <div>
+                            <strong class="m-0 text-capitalize"><i class="fa fa-address-book-o"></i> bookings :</strong>
+                        </div>
+                        <div class="pl-3">
+                            <p class="m-0">
+                                <a href="mailto:bookings@totalcaremobility.co.nz">
+                                    bookings@totalcaremobility.co.nz
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="mt-2 mb-2">
+                    <div class="d-flex">
+                        <div>
+                            <strong class="m-0 text-capitalize"><i class="fa fa-address-book-o"></i> complaints
+                                :</strong>
+                        </div>
+                        <div class="pl-3">
+                            <p class="m-0">
+                                <a href="mailto:complaints@totalcaremobility.co.nz">
+                                    complaints@totalcaremobility.co.nz
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="mt-2 mb-2">
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <div class="mb-2 text-center">
+                            <strong class="m-0 text-capitalize"><i class="fa fa-phone-square"></i> contact us 24/7 for
+                                bookings or enquiries.</strong>
+                        </div>
+                        <div class="pl-0 text-center">
+                            <p class="m-0">
+                                <a href="tel:0800 003131">
+                                    <strong>
+                                        0800 003131
+                                    </strong>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5 col-xl-7">
+                <div class="border rounded bg-light shadow rounded-lg p-4">
+                    <form [formGroup]="contactForm">
+                        <div class="form-row">
+                            <div class="col-12 col-md-6 form-group">
+                                <label class="mb-1"><strong>Full Name <span class="red">*</span></strong></label>
+                                <input formControlName='fullName' type="text" class="form-control fs-16"
+                                    placeholder="Full name">
+                                <span class="text-danger"
+                                    *ngIf="contactForm.controls['fullName'].hasError('required') && isSubmited">(Email
+                                    is required)</span>
+                            </div>
+                            <div class="col-12 col-md-6 form-group">
+                                <label class="mb-1"><strong>Your contact phone <span
+                                            class="red">*</span></strong></label>
+                                <input formControlName='contactNo' type="text" class="form-control fs-16"
+                                    placeholder="Your contact phone" from>
+                                <span class="text-danger"
+                                    *ngIf="contactForm.controls['contactNo'].hasError('required') && isSubmited">(Phone
+                                    is required)</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-12 col-md-12 form-group">
+                                <label class="mb-1"><strong>Email <span class="red">*</span></strong></label>
+                                <input type="text" class="form-control fs-16" placeholder="Email "
+                                    formControlName='email'>
+                                <span class="text-danger"
+                                    *ngIf="contactForm.controls['email'].hasError('pattern') && isSubmited">(Email not
+                                    valid) </span>
+                                <span class="text-danger"
+                                    *ngIf="contactForm.controls['email'].hasError('required') && isSubmited">(Email is
+                                    required)</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-12 col-md-12 form-group">
+                                <label class="mb-1"><strong>Enquiry Details<span class="red">*</span></strong></label>
+                                <textarea formControlName='enquiry' class="form-control fs-16"
+                                    id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <span class="text-danger"
+                                    *ngIf="contactForm.controls['enquiry'].hasError('required') && isSubmited">(required)
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-row m-0">
+                            <div class="col-12 col-md-12 form-group">
+                                <button class="btn btn-green btn-lg" type="button" (click)="submitForm()">
+                                    Send Enquiry Now <i class="fa fa-send"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

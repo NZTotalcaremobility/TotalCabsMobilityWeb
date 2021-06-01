@@ -1,0 +1,67 @@
+
+<div class="login-register-wrap container-fluid">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <!-- <div class="col-lg-6 login-register-left">
+            <div class="login-register-left-in">
+                <figure class="logo text-center">
+                    <img src="assets/images/logo.jpg" alt="logo" />
+                </figure>
+            </div>
+        </div> -->
+        <div class="col-lg-6  login-register-right">
+            <div class="login-register-right-in">
+                <div class="login-register-title">
+                    <h2><small>Hello</small><br>Get moving with Total Care Mobility</h2>
+                </div>
+                <div class="login-register-action">
+                    <form [formGroup]="userloginForm" (submit)="login()">
+                        <!-- <div class="form-group field-cover has-icon">
+                            <label for="username">Mobile Number</label>
+                            <i class="zmdi zmdi-phone icon"></i>
+
+
+
+ <input id="1" type="text" formControlName="phonenumber"  class="form-control " />
+                    <span class="error-notification" *ngIf="userloginForm.controls['phonenumber'].hasError('required') && isSubmited">(Phonenumber is required)</span>
+
+                    <span class="error-notification" *ngIf="userloginForm.controls['phonenumber'].hasError('minlength') && isSubmited">(Minimum 10 characters required)</span>
+
+
+
+                        </div> -->
+
+                        <div class="form-group field-cover has-icon" [ngClass]="{'has-error': (userloginForm.controls['phonenumber'].hasError('required') && isSubmited) || userloginForm.controls['phonenumber'].hasError('minlength') && isSubmited}">
+                            <label for="username">
+                              Mobile Number
+                              <span class="error ml-1" *ngIf="userloginForm.controls['phonenumber'].hasError('required') && isSubmited">(Phonenumber is required)</span>
+                              <span class="error ml-1" *ngIf="userloginForm.controls['phonenumber'].hasError('minlength') && isSubmited">(Minimum 8 numbers required)</span>
+                            </label>
+                            <i class="zmdi zmdi-phone icon"></i>
+                            <span class="mr-2"> <img src="assets/images/newzland.png" style="width:5%;height:10px" alt="logo" /></span>
+                            <span class="mr-2" for="number">+64</span>
+                            <input id="mobile-number" formControlName="phonenumber" (keypress)="numberOnly($event)" tye="text" class="form-control mobilenumber"  />
+
+                        </div>
+                        <div class="form-group">
+                            <button type="submit"  class="btn btn-green d-block full-width">Continue</button>
+                        </div>
+                        <div class="form-group text-center">
+                            Or
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <a routerLink="/login" class="btn btn-green-outline d-block full-width">Continue with Email Id</a>
+                    </div>
+                    <div class="form-group">
+                        <a routerLink="/register" class="btn btn-green-outline d-block full-width">Sign Up</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2020 - totalcare
+            </div>
+        </div>
+    </div>
+</div>

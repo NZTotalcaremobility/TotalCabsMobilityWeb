@@ -1,0 +1,60 @@
+<app-top-header></app-top-header>
+<!-- <app-sidebar></app-sidebar> -->
+<div class="searchmap">
+  <div class="searchmap-box">
+    <form class="form-inline md-form mr-auto mb-4" [formGroup]='searchForm'>
+      <div class="input-group">
+        <input formControlName="_id" class="form-control" type="text" placeholder="Enter A Job Number" aria-label="Search"
+          id="datavalue" required>
+        <div class="input-group-append">
+          <button (click)="handleSerachButton()" class=" input-group-text btn btn-sm btn-outline-success btn-success"><i
+              class="fa fa-search"></i></button>
+        </div>
+      </div>
+
+      <!-- <button mdbBtn size="sm" gradient="aqua" rounded="true" class="my-0 waves-light" mdbWavesEffect type="submit"
+        (click)="getRiderLocation()">Search</button> -->
+    </form>
+
+  </div>
+
+  <agm-map [latitude]="latitude" [longitude]="longitude">
+
+    <agm-marker [iconUrl]="{ url: ('../assets/images/car_map.png')}" [latitude]="currentLocatin?.lat"
+      [longitude]="currentLocatin?.long">
+      <agm-info-window [disableAutoPan]="false">
+
+
+      </agm-info-window>
+
+    </agm-marker>
+    <agm-direction [renderOptions]="renderOptions" [markerOptions]="markerOptions" [origin]="start" [destination]="end">
+    </agm-direction>
+  </agm-map>
+</div>
+<div [style.display]="confirmModal ? 'block' : 'none'" class="modal" id="myModal">
+  <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#00a19a; color: #fff;">
+        <h4 class="modal-title">Here is Your Job Detail..</h4>
+        <button type="button" class="close" data-dismiss="modal" (click)="dmhide()">&times;</button>
+      </div>
+
+      <div class="modal-body">
+
+     <h4> Date of Journey: {{dateOfJourney | date : "dd.MM.yyyy" }}</h4>
+     <h4>Time Of Journey:{{pickuptime}}</h4>
+      <h4>PickupLocation :{{pickupLocation}}</h4>
+      <h4>DropLocation : {{dropLocation}}</h4>
+     <h4> Message : {{message}}</h4>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="decline()">Ok</button>
+        <!-- <button type="button" class="btn btn-primary" (click)="accept()">Yes</button> -->
+      </div>
+
+    </div>
+  </div>
+</div>

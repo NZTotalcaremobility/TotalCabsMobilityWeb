@@ -1,0 +1,58 @@
+<div class="confirm-box">
+  <div class="confirm-box-in">
+    <div class="confirm-box-header">
+      <h2>Your Driver arrives in {{data1}}</h2>
+    </div>
+    <div class="confirm-box-body">
+      <div class="row align-items-center">
+        <div class="col-5 col-sm-5 col-md-4 col-lg-3">
+          <div class="profile-img-wrap">
+            <img src={{imagefile}} class="profile-img" width="130" alt="" />
+          </div>
+        </div>
+        <div class=" col-7 col-sm-7 col-md-8 col-lg-9">
+          <h5>{{obj.licencenumber}}</h5>
+          <h6 class="taxi-modal">{{obj.carModel}}</h6>
+          <div class="driver-info">
+            <span class="driver-name">{{obj.name}}</span>
+            <!-- <span class="driver-rating"><i class="icon fas fa-star text-green mr-1"></i> 4.5</span> -->
+          </div>
+        </div>
+      </div>
+      <div class="driver-contact">
+        <!-- <a href="tel:1234553" class="driver-contact-phone driver-contact-btn">
+          <i class="icon fas fa-phone-alt"></i> Call Driver
+        </a> -->
+        <a  routerLink="../page/chat" class="driver-contact-phone driver-contact-btn">
+          <i class="icon fas fa-comment-alt"></i> Message to Driver
+        </a>
+      </div>
+      <div>
+        <div class="form-group field-group no-licon">
+          <div>
+            <label class="form-label">Fare</label>
+            <div class="form-control text-green">${{obj.price}}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="confirm-box-footer">
+      <div class="row">
+        <div class="col-sm-7">
+          <button (click)="reload()" class="btn btn-disabled full-width">Cancel Trip</button>
+        </div>
+       </div>
+         </div>
+         <div class="confirm-box-footer">
+          <div class="row">
+            <!-- <div class="col-sm-7">
+              <button (click)="returnBooking()" class="btn btn-disabled full-width">Retuen Booking</button>
+            </div> -->
+           </div>
+             </div>
+
+                   
+  </div>
+  
+</div>

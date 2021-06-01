@@ -1,0 +1,24 @@
+@import '../../styles.scss';
+
+.layout-right{
+  margin-left: var(--w-242);
+  padding: 100px 30px 30px;
+  @media(max-width: 991px){
+    margin-left: 0;
+  }
+
+  &.slide-right{
+    position: relative;
+    z-index: 1;
+    &:before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: rgba($color: #000000, $alpha: 0.45);
+      z-index: 2;
+    }
+  }
+}

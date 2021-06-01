@@ -1,0 +1,31 @@
+<div class="taxi-listing">
+  <div style="position: relative" *ngIf="isLoading">
+    <div class="row">
+      <img src="./../../../assets/images/loader_green.gif" style="margin: 0 auto;">
+    </div>
+  </div>
+  <label class="taxi-listing-label">Avilable Taxi</label>
+  {{" "}}
+  {{" "}}
+  {{" "}}
+  <label *ngIf="!isLoading && isDataLoaded" class="taxi-listing-label">Total Distance:
+    {{ (data.distance/1000).toFixed(0) }}km</label>
+  <div *ngIf="!isLoading && isDataLoaded" class="taxi-list">
+    <div class="cabtype-info" *ngFor="let item of data.taxilisting" (click)="selectedTaxi(item)">
+      <div class="cabtype-figure text-center">
+        <figure class="cabtype-icon">
+          <img src="{{item.taxiimage}}" width="70" alt="cab" />
+        </figure>
+        <div class="reachtime text-center">{{item.time}}</div>
+      </div>
+      <div class="cabtype-txt clearfix">
+        <h6 class="cab-type">{{item.taxitype}}</h6>
+        <p class="cab-feature">{{item.description}}</p>
+      </div>
+      <div class="cab-price" #price>${{item.price}}</div>
+    </div>
+    <div class="cabtype-info" *ngIf="data.taxilisting.length===0">
+      No Vehicle Found!
+    </div>
+  </div>
+</div>

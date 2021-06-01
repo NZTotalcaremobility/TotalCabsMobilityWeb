@@ -1,0 +1,378 @@
+:root{
+    --vlight_grey: #F5F6F9;
+    --font-color: #434345;
+    --title-color: #303030;
+    --green: #2fb654;
+    --white: #fff;
+    --border-color: #BEBEBE;
+    --radius-5: 5px;
+    --poppin: 'Poppins', sans-serif;
+    --font-12: 0.878vw;
+    --font-16: 1.171vw;
+    --font-14: 1.025vw;
+    --font-20: 1.464vw;
+    --font-40: 2.928vw;
+    --w-550: 40.264vw;
+    --w-393: 28.770vw;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+body{
+    font-family: var(--poppin);
+    font-size: var(--font-14); 
+    color: var(--font-color);
+    line-height: normal;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: 700;
+}
+
+h1{
+    font-size: var(--font-40); 
+}
+
+h1 small{
+    font-size: var(--font-16);
+    display: block;
+}
+
+a, a:hover, a:focus{
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+ul, li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+figure, label{
+    margin-bottom: 0;
+}
+
+/* extra css */
+
+.full-width{
+    width: 100%;
+}
+
+.text-green{
+    color: var(--green);
+}
+
+/* Forms */
+
+.field-cover .form-control:focus,
+.form-group .form-control:focus,
+.login-register-wrap .login-register-right .otp-wrap .otp-box .form-control:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.form-group .form-control{
+    font-size: var(--font-14); 
+    color: var(--font-color)
+}
+
+::-webkit-input-placeholder { /* Edge */
+    color: var(--font-color)
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--font-color)
+}
+
+::placeholder {
+    color: var(--font-color)
+}
+
+/* checkbox */
+
+.checkbox input[type="checkbox"]:not(:checked), 
+.checkbox input[type="checkbox"]:checked {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.checkbox input[type="checkbox"]+span {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: var(--font-14); 
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkbox input[type="checkbox"]+span:before, 
+.checkbox input[type="checkbox"]+span:after {
+    content: '';
+    left: 0;
+    position: absolute;
+    -webkit-transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+    transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+    z-index: 1;
+    
+}
+
+.checkbox input[type="checkbox"]+span:after{
+    border-radius: 2px;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    border: solid 2px var(--title-color);
+    z-index: 0;
+}
+
+.checkbox input[type="checkbox"]:checked+span:after {
+    border-color: var(--green);
+    background-color: var(--green);
+}
+
+.checkbox input[type="checkbox"]:not(:checked)+span:before {
+    width: 0;
+    height: 0;
+    border: 3px solid transparent;
+    left: 6px;
+    top: 6px;
+    -webkit-transform: rotateZ(37deg);
+    transform: rotateZ(37deg);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+}
+
+.checkbox input[type="checkbox"]:checked+span:before {
+    top: 6px;
+    left: 1px;
+    width: 8px;
+    height: 13px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid var(--white);
+    border-bottom: 2px solid var(--white);
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+}
+
+/** Button **/
+
+.btn.full-width{
+    font: normal normal 300 18px/24px var(--poppin);
+    padding: 12px 15px 12px;
+}
+
+.btn.btn-green{
+    background: var(--green);
+    color: var(--white);
+    border-color: var(--green);
+}
+
+.btn.btn-green:hover,
+.btn.btn-green:focus{
+    outline: none;
+    border-color: var(--green);
+    background: transparent;
+    color: var(--green);
+    box-shadow: none;
+}
+
+.btn.btn-green-outline{
+    background: transparent;
+    color: var(--green);
+    border-color: var(--green);
+}
+
+.btn.btn-green-outline:hover,
+.btn.btn-green-outline:focus{
+    outline: none;
+    border-color: var(--green);
+    background: var(--green);
+    color: var(--white);
+    box-shadow: none;
+}
+
+/* login-register */
+
+.login-register-wrap{
+    min-height: 100vh;
+    background: var(--vlight_grey);
+}
+
+.login-register-wrap .login-register-left{
+    background: url(../images/building.jpg) repeat-x bottom center var(--green);
+    color: var(--white);
+    min-height: 100vh;
+    padding: 15px;
+}
+
+.login-register-wrap .login-register-left .login-register-left-in{
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-register-wrap .login-register-right{
+    padding: 15px 15px  40px 15px;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-register-wrap .login-register-right .login-register-right-in{
+    max-width: var(--w-550);
+    display: block;
+    margin: 0 auto;
+    flex: none;
+}
+
+.login-register-wrap .login-register-right .login-register-title{
+    margin-bottom: 27px;
+}
+
+.login-register-wrap .login-register-right .login-register-title h1{
+    margin: none;
+}
+
+.login-register-wrap .login-register-right .login-register-right-in .login-register-action{
+    max-width: var(--w-393);
+}
+
+.login-register-right-in .login-register-action .field-cover{
+    padding: 7px 12px 7px 12px;
+    position: relative;
+    background: var(--white);
+    border: solid 1px var(--border-color);
+    border-radius: var(--radius-5);
+}
+
+.login-register-right-in .login-register-action .field-cover.has-error{
+    border-color: var(--danger);
+}
+
+.login-register-right-in .login-register-action .field-cover.has-icon{
+    padding-right: 40px;
+}
+
+.login-register-right-in .login-register-action .field-cover.has-icon .icon{
+    height: 21px;
+    right: 20px;
+    color: var(--green);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    font-size: 20px;
+}
+
+.login-register-right-in .login-register-action .field-cover.has-icon .icon.fa,
+.login-register-right-in .login-register-action .field-cover.has-icon .icon.far{
+    font-size: var(--font-16);
+    /* font-size: 16px; */
+}
+
+.login-register-right-in .login-register-action .field-cover label{
+    font-weight: 400;
+    font-size: 0.878vw;
+    /* font-size: 12px; */
+    color: var(--font-color);
+    display: block;
+}
+
+.login-register-right-in .login-register-action .field-cover label .error{
+    display: none;
+}
+
+.login-register-right-in .login-register-action .field-cover.has-error label .error{
+    display: inline;
+}
+
+.login-register-right-in .login-register-action .field-cover.has-error label,
+.login-register-right-in .login-register-action .field-cover.has-error.has-icon .icon{
+    color: var(--danger);
+}
+
+.login-register-right-in .login-register-action .field-cover .form-control{
+    padding: 0;
+    height: auto;
+    border: none;
+    min-height: 23px;
+    width: 100%;
+}
+
+.login-register-right-in .login-register-action .field-cover .form-control.mobilenumber{
+    padding-left: 35px;
+}
+
+.login-register-right-in .login-register-action .field-cover .form-control::-webkit-input-placeholder { /* Edge */
+    color: var(--font-color)
+  }
+  
+.login-register-right-in .login-register-action .field-cover .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--font-color)
+  }
+  
+.login-register-right-in .login-register-action .field-cover .form-control::placeholder {
+    color: var(--font-color)
+}
+
+.login-register-right-in .login-register-action .field-cover.has-error .form-control::-webkit-input-placeholder{
+    color: var(--danger);
+}
+
+.login-register-right-in .login-register-action .field-cover.has-error .form-control:-ms-input-placeholder{
+    color: var(--danger);
+}
+
+.login-register-right-in .login-register-action .field-cover.has-error .form-control::placeholder{
+    color: var(--danger);
+}
+
+.login-register-wrap .login-register-right .copyright{
+    position: absolute;
+    max-width: var(--w-550);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 15px;
+    text-align: left;
+    padding: 0 15px;
+}
+
+.login-register-wrap .login-register-right .otp-wrap{
+    display: flex;
+    margin-bottom: 20px;
+    
+}
+
+.login-register-wrap .login-register-right .otp-wrap .otp-box{
+    flex: 0 0 calc(25% - 11px);
+}
+
+.login-register-wrap .login-register-right .otp-wrap .otp-box +  .otp-box{
+    margin-left: 15px;
+}
+
+.login-register-wrap .login-register-right .otp-wrap .otp-box .form-control{
+    text-align: center;
+}

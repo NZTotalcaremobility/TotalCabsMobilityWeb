@@ -1,0 +1,39 @@
+<app-top-header></app-top-header>
+<div class="searchmap">
+
+  <div class="searchmap-box" *ngIf="showBox">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="searchmap-box" *ngIf="showConfirmTaxiDialog">
+    <app-confirmtaxi></app-confirmtaxi>
+  </div>
+
+  <!-- <div class="" -->
+
+
+  <agm-map [latitude]="latitude" [longitude]="longitude">
+    <!-- <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker> -->
+
+    <agm-marker *ngFor="let  d of driversdata" [iconUrl]="{ url: ('../assets/images/icon-car.jpg')}" [latitude]="d.lat"
+      [longitude]="d.lang">
+      <agm-info-window [disableAutoPan]="false">
+
+        <div>
+          <a class="btn btn-attention pull-right">
+            <br> name:{{d.name}}<br>
+            licencenumber:{{d.licencenumber}}</a>
+        </div>
+
+      </agm-info-window>
+
+    </agm-marker>
+    <agm-direction [renderOptions]="renderOptions" [markerOptions]="markerOptions" [origin]="start" [destination]="end">
+    </agm-direction>
+  </agm-map>
+
+  <!-- <h5>Address: {{address}}</h5>
+  <div>Latitude: {{latitude}}</div>
+  <div>Longitude: {{longitude}}</div> -->
+
+
+</div>

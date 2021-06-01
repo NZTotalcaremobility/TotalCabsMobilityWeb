@@ -1,0 +1,55 @@
+.policy-section{
+      margin-top: 6rem;
+      padding-bottom: 2rem;
+      .display-1{
+            font-size: 30px;
+            font-weight: 700;
+            font-family: var(--poppin);
+            margin-bottom: 20px;
+            text-align: center;
+      }
+      .display-2{
+            font-size: 28px;
+            font-weight: 600;
+            font-family: var(--poppin);
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+      }
+      .display-3{
+            font-size: 18px;
+            font-weight: 600;
+            font-family: var(--poppin);
+            margin-bottom: 20px;
+            text-align: left;
+            text-transform: uppercase;
+      }
+      .number-list{
+            list-style: decimal;
+            margin-left: 20px;
+            li{
+                  list-style: decimal;
+                  padding-left: 10px;
+                  margin-bottom: 10px;
+            }
+      }
+      .unorder-list{
+            list-style: disc;
+            margin-left: 20px;
+          & >  li{
+                  list-style: disc;
+                  padding-left: 10px;
+                  margin-bottom: 10px;
+            }
+      }
+      .upper-latin {
+            list-style-type:upper-latin;
+            margin-left: 20px;
+         &>   li{
+                  
+            list-style-type:upper-latin;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            }
+          }
+}

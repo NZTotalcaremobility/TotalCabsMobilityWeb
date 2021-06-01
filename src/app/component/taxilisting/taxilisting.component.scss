@@ -1,0 +1,50 @@
+@import '../../../styles.scss';
+.taxi-listing{
+  padding-top: 10px;
+  .taxi-listing-label{
+    font-size: var(--font-12);
+    font-weight: 400;
+  }
+  .taxi-list{
+    padding: 0 22px 0 0;
+    margin-left: -20px;
+    height: calc(87vh - 300px);
+    overflow-y: auto;
+  }
+  .cabtype-info{
+    position: relative;
+    padding-right: 105px;
+    cursor: pointer;
+    .cabtype-figure{
+      width: 100px;
+      float: left;
+      .cabtype-icon{
+        width: 70px;
+        margin: 0 auto 0px;
+      }
+      .reachtime{
+        font-size: var(--font-16);
+        font-weight: 500;
+        margin-top: -15px;
+        font-size: var(--font-14);
+      }
+    }
+    .cabtype-txt{
+      padding-top: 15px;
+      margin-left: 105px;
+      .cab-feature{
+        margin-bottom: 0;
+      }
+    }
+
+    .cab-price{
+      position: absolute;
+      right: 0;
+      top: 20px;
+      text-align: right;
+      font-weight: 700;
+      color: var(--green);
+      font-size: var(--font-16);
+    }
+  }
+}

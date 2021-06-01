@@ -1,0 +1,255 @@
+<app-top-header></app-top-header>
+
+<!-- MAIN -->
+<section class="banner">
+    <app-second-menu></app-second-menu>
+    <!-- /BANNER HEADER -->
+    <div class="sld1 min-het">
+        <div class="carousel-caption crsl-mdl">
+            <h2>Half Price Trips</h2>
+            <p>*For Total Mobility Scheme, conditions apply.</p>
+        </div>
+    </div>
+</section>
+<!-- /MAIN -->
+<section class="sec-2">
+    <div class="container">
+        <div class="row text-center card-ui card-icon rpt-hw-ln">
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <img class="card-img-top" width="80" height="80" src="../../assets/images/track.svg"
+                        alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">Track Cab</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur</p>
+                        <a [routerLink]="['/ride/']" class="text-success">Track Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <img class="card-img-top" width="80" height="80" src="../../assets/images/calculator.svg"
+                        alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">Calculate Fare</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur</p>
+                        <a [routerLink]="['/calculate']" class="text-success">Calculate Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <img class="card-img-top" width="80" height="80" src="../../assets/images/taxi.svg"
+                        alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">Book a Taxi Online</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur</p>
+                        <a [routerLink]="['/search/cab']" class="text-success">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <img class="card-img-top" width="80" height="80" src="../../assets/images/account.svg"
+                        alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">My Account</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur</p>
+                        <a [routerLink]="['/login']" class="text-success">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="para-how text-center">
+            <h3>Ride with us for TOTAL CARE every time.</h3>
+            <p>We offer 24/7 wheelchair and companion service, any day any time. You can be assured your driver will
+                arrive on
+                time, is caring, compassionate, reliable and professional. We will personally assist you to any
+                appointment or
+                social activity and returned safely.</p>
+            <p>Total Care Mobility is more than just transportation. We work according to your needs.</p>
+            <a href="javascript:void(0);">ACC Vendor number: VBC220 – wheelchair vehicles available 24/7 on request</a>
+        </div>
+    </div>
+</section>
+
+<section class="mb-wrap">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-sm-6 ap-intro">
+                <h3>A Faster Way to Book</h3>
+                <p>Real time ETA, track your cab live, fare estimation We have friendly, experienced staff trained in
+                    handling
+                    people with special needs.</p>
+                <h4>Download the Total Mobility App</h4>
+                <div class="ap-btn">
+                    <a class="app-ggl" href="javascript:void(0);"></a>
+                    <a class="app-ios" href="javascript:void(0);"></a>
+                </div>
+            </div>
+            <div class="col-sm-6 text-center">
+                <img src="../../assets/images/mobile.png" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="abt-ui">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-5 col-sm-6">
+                <owl-carousel-o [options]="customOptions">
+                    <ng-template carouselSlide>
+                        <div class="w-100">
+                            <img src="../../assets/images/about.jpg" />
+                        </div>
+                    </ng-template>
+
+                    <ng-template carouselSlide>
+                        <div class="w-100">
+                            <img src="../../assets/images/about.jpg" />
+                        </div>
+                    </ng-template>
+
+                    <ng-template carouselSlide>
+                        <div class="w-100">
+                            <img src="../../assets/images/about.jpg" />
+                        </div>
+                    </ng-template>
+                </owl-carousel-o>
+            </div>
+            <div class="col-md-7 col-sm-6">
+                <h3>Book a wheelchair accessible vehicle/9 seater Van or a private car for tours and outings</h3>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- THE FLEET -->
+<section class="section-block sec-2">
+    <div class="container">
+        <h3 class="text-center center-title">The Fleet</h3>
+        <owl-carousel-o [options]="thefleet" class="owl-theme crt-sb-ui">
+            <ng-template carouselSlide>
+                <div class="item">
+                    <div class="card">
+                        <div class="card-top-mb">
+                            <div class="display-table">
+                                <div class="display-cell">
+                                    <img src="../../assets/images/car2.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Ford Transit</h4>
+                            <a [routerLink]="['/contact']">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+                <div class="item">
+                    <div class="card">
+                        <div class="card-top-mb">
+                            <div class="display-table">
+                                <div class="display-cell">
+                                    <img src="../../assets/images/car1.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Toyota Hiace Wheelchair Van</h4>
+                            <a [routerLink]="['/contact']">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+                <div class="item">
+                    <div class="card">
+                        <div class="card-top-mb">
+                            <div class="display-table">
+                                <div class="display-cell">
+                                    <img src="../../assets/images/car3.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Toyota Camry</h4>
+                            <a [routerLink]="['/contact']">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+                <div class="item">
+                    <div class="card">
+                        <div class="card-top-mb">
+                            <div class="display-table">
+                                <div class="display-cell">
+                                    <img src="../../assets/images/car4.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Toyota Prius</h4>
+                            <a [routerLink]="['/contact']">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+                <div class="item">
+                    <div class="card">
+                        <div class="card-top-mb">
+                            <div class="display-table">
+                                <div class="display-cell">
+                                    <img src="../../assets/images/9seater.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">9 Seater Maxi</h4>
+                            <a [routerLink]="['/contact']">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+</section>
+<!-- /THE FLEET -->
+<!-- CAR STAND -->
+
+<section class="stand-wrap">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 p-0">
+                <div style="padding:56.25% 0 0 0;position:relative;"><iframe
+                        src="https://player.vimeo.com/video/495362889?autoplay=1&loop=1&color=ffffff"
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0"
+                        allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<!-- /CAR STAND -->
+<!-- 24x7 SERVICE -->
+<section class="sec-2 text-center cstm-srvc">
+    <div class="container">
+        <h3 class="mb-4">We are available 24/7</h3>
+
+        <a href="tel:0800 00 3131"><i class="fa fa-phone"></i>0800 00 3131</a>
+        <a class="green-btn" [routerLink]="['/user/search']"> Book Now</a>
+    </div>
+</section>
+<!-- /24x7 SERVICE -->
+
+<app-footer></app-footer>

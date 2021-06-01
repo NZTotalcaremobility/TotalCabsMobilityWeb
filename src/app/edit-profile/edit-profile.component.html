@@ -1,0 +1,72 @@
+<div class="edit-profile">
+  <div class="page-title mb-3">
+    <h6>Edit Profile</h6>
+  </div>
+  <div class="edit-profile-in">
+    <block-ui>
+      <form   [formGroup]="editForm" (submit)="update()">
+        <div class="form-group field-cover has-icon ">
+          <label for="username">Name
+            <span class="error-notification-new" *ngIf="editForm?.controls['name']?.errors?.required">
+              (Name is required)
+            </span> </label>
+    
+          <i class="zmdi zmdi-account-o icon"></i>
+          <input id="username" formControlName='name' tye="text" class="form-control" placeholder="Enter your name"  required>
+          <span class="error-notification" *ngIf="editForm.controls['name'].hasError('required') && isSubmited">(Name is required)</span>
+      </div>
+       
+        <div class="form-group field-cover has-icon">
+          <label for="useremail">Email
+                <span class="error-notification-new" *ngIf="editForm?.controls['email']?.errors?.required">
+                  (Email is required)
+                               </span>
+                <span class="error-notification-new" *ngIf="editForm?.controls['email']?.errors?.pattern">
+                  (Email is invalid)
+                </span>
+          </label>
+           <i class="far fa-envelope icon"></i>
+          <input id="useremail" type="email"  formControlName='email' class="form-control" placeholder="Enter your email id" required />
+      </div>
+
+        <div class="form-group field-cover has-icon ">
+          <label for="username">Phone Number
+            <span class="error-notification-new" *ngIf="editForm?.controls['phonenumber']?.errors?.required">
+              (Phone is required)</span>
+            <span class="error-notification-new" *ngIf="editForm?.controls['phonenumber']?.errors?.pattern">
+              (Phone is invalid)
+            </span>
+           </label>
+          <i class="zmdi zmdi-phone icon"></i>
+          <input (keypress)="numberOnly($event)"  formControlName='phonenumber' type="text" class="form-control" placeholder="Enter your phone number" required/>
+      
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-6">
+              <label for="">Profile Picture:</label><br />
+              <div class="pic_container">
+                <img src={{image}} alt="Avatar" class="image">
+                <div class="overlay">
+              
+                <input type="file" class="profile-pic-upload" name="filename" id="imagePath" accept="image/*" (change)="onSelectFile($event)" #imageInput>
+                </div>
+              </div>
+              <br />
+              <!-- <div class="upload-btn-wrapper">
+                
+                  <input type="file" class="profile-pic-upload" name="filename" id="imagePath" accept="image/*" (change)="onSelectFile($event)" #imageInput>
+              </div>
+              <img *ngIf="imageUrl" [src]=imageUrl class="logoImage" /> -->
+          </div>
+        </div>
+       
+      <div class="form-group">
+
+        <button class="btn btn-green btn-lg"  type="submit">Update Profile</button>
+    </div>
+      </form>
+
+      </block-ui>
+
+  </div>
+</div>

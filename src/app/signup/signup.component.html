@@ -1,0 +1,47 @@
+<block-ui>
+    <div class="login-register-wrap container-fluid">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <!-- <div class="col-lg-6 login-register-left">
+                <div class="login-register-left-in">
+                    <figure class="logo text-center">
+                        <img src="../../assets/images/logo-new.svg" width="300" alt="logo" />
+                         <img src="assets/images/logo-cab.png" alt="logo" /> 
+                    </figure>
+                </div>
+            </div> -->
+            <div class="col-lg-6  login-register-right">
+                <div class="login-register-right-in">
+                    <div class="login-register-title">
+                        <h1><small>Hello, welcome to totalcab</small>Get moving with Total Cab</h1>
+                    </div>
+                    <div class="login-register-action">
+                        <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-green-outline" (click)="switchSignUpAs('individual')"
+                                [ngClass]="{'active': (signupAs == 'individual')}">Sign Up as an Indvidual</button>
+                            <button type="button" class="btn btn-green-outline" (click)="switchSignUpAs('company')"
+                                [ngClass]="{'active': (signupAs == 'company')}">create business account</button>
+                        </div>
+
+                        <app-signup-individual *ngIf="signupAs == 'individual'"></app-signup-individual>
+                        <app-signup-compnay *ngIf="signupAs == 'company'"></app-signup-compnay>
+                        <div class="form-group text-center">
+                            Or
+                        </div>
+                        <div class="form-group">
+                            <a routerLink='/login' class="btn btn-green-outline d-block full-width">Login</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="copyright">
+                    &copy; 2020 - totalcare
+                </div>
+            </div>
+            <!-- <div class="copyright">
+                &copy; 2020 - totalcare
+            </div> -->
+        </div>
+    </div>
+
+</block-ui>

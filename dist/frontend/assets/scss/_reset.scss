@@ -1,0 +1,231 @@
+:root {
+    --vlight_grey: #f5f6f9;
+    --font-color: #434345;
+    --title-color: #303030;
+    --green: #2fb654;
+    --white: #ffffff;
+    --gray: #b4b4b4;
+    --red: #ff6b6b;
+    --border-color: #bebebe;
+    --radius-5: 5px;
+    --poppin: 'Poppins', sans-serif;
+    --font-12: 0.878vw;
+    --font-16: 1.171vw;
+    --font-14: 1.025vw;
+    --font-20: 1.464vw;
+    --font-34: 2.489vw;
+    --font-40: 2.928vw;
+    --w-550: 40.264vw;
+    --w-393: 28.77vw;
+    --w-641: 46.925vw;
+    --w-242: 17.716vw;
+}
+
+@media (max-width: 991px) {
+    :root {
+        --font-12: 12px;
+        --font-16: 16px;
+        --font-14: 14px;
+        --font-20: 20px;
+        --font-34: 28px;
+        --font-40: 36px;
+        --w-550: 550px;
+        --w-393: 393px;
+        --w-641: 641px;
+        --w-242: 242px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+body {
+    font-family: var(--poppin);
+    font-size: var(--font-14);
+    color: var(--font-color);
+    line-height: normal;
+    // background: #F5F6F9;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: var(--font-40);
+    small {
+        font-size: var(--font-16);
+        display: block;
+    }
+}
+
+h2 {
+    font-size: var(--font-34);
+}
+
+h6 {
+    font-size: var(--font-16);
+    font-weight: 400;
+}
+
+a,
+a:hover,
+a:focus {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+figure,
+label {
+    margin-bottom: 0;
+}
+
+/* extra classes */
+
+.full-width {
+    width: 100%;
+}
+
+.text-green {
+    color: var(--green);
+}
+
+.wt-600 {
+    font-weight: 600;
+}
+
+.round-50 {
+    border-radius: 50px;
+}
+
+.dropdown-toggle {
+    &::after {
+        border: none;
+        content: '\f2f9';
+        display: inline-block;
+        font: normal normal normal 14px/1 'Material-Design-Iconic-Font';
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 19px;
+        position: relative;
+        top: 7px;
+        line-height: 0.1;
+    }
+}
+
+.dropdown-item {
+    font-size: var(--font-14);
+    &.active,
+    &:active {
+        background: var(--green);
+        color: var(--white);
+    }
+}
+
+/* panal */
+
+.panal {
+    background: var(--white);
+    border-radius: 5px;
+    margin-bottom: 30px;
+    .panal-body {
+        padding: 30px;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .panel-head {
+        & + .panal-body {
+            border-radius: 5px 5px 5px 5px;
+        }
+    }
+}
+
+/* pickpoint and droppoint */
+
+.pickpoint,
+.droppoint {
+    position: relative;
+    padding-left: 38px;
+    &:before {
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        border: solid 4px var(--green);
+        position: absolute;
+        left: 0;
+        top: 5px;
+    }
+    &-label {
+        display: block;
+        font-weight: 300;
+        font-size: var(--font-12);
+    }
+    &-area {
+        display: block;
+        font-size: var(--font-14);
+        font-weight: bold;
+    }
+}
+
+.droppoint {
+    @media (max-width: 767px) {
+        margin-top: 20px;
+    }
+    &:before {
+        border-radius: 50%;
+    }
+}
+
+/* tab */
+
+.nav-tab {
+    .nav-tabhead {
+        position: relative;
+        display: flex;
+        overflow: auto;
+        margin-bottom: 20px;
+        .nav-tab-item {
+            position: relative;
+            color: var(--font-color);
+            display: inline-block;
+            vertical-align: top;
+            padding: 7px 10px;
+            &:after {
+                content: '';
+                display: block;
+                width: 50%;
+                height: 2px;
+                background: transparent;
+            }
+
+            &.active {
+                color: var(--green);
+                &:after {
+                    background: var(--green);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+<aside class="layout-sidebar" [ngClass]="{'show-sidebar': commonservice.toggleSidebar}">
+  <div>
+    <ul class="navlist">
+      <li class="navbar-item">
+        <a [routerLink]="[ '/user/page/profile']" class="navbar-link has-licon">
+          <i class="licon zmdi zmdi-account-o"></i>
+          Profile</a>
+      </li>
+      <li class="navbar-item">
+        <a [routerLink]="[ '/user/search']" class="navbar-link has-licon">
+          <i class="licon zmdi zmdi-car-taxi"></i>
+         Search ride
+        </a>
+      </li>
+      <li class="navbar-item">
+        <a [routerLink]="[ '/user/page/my-trip']" class="navbar-link has-licon">
+          <i class="licon zmdi zmdi-car-taxi"></i>
+         My Booking
+        </a>
+      </li>
+      <!-- <li class="navbar-item">
+        <a [routerLink]="[ '/page/']" class="navbar-link has-licon">
+          <i class="licon zmdi zmdi-balance-wallet"></i>
+          Wallet</a>
+      </li>
+      <li class="navbar-item">
+        <a [routerLink]="[ '/page/']" class="navbar-link has-licon">
+          <i class="licon zmdi zmdi-tag"></i>
+          Offers</a>
+      </li>
+      -->
+      <li class="navbar-item">
+        <a (click)="logout()" style="cursor: pointer;" class="navbar-link has-licon">
+          <i class="licon zmdi zmdi-account-o"></i>
+          Logout</a>
+      </li>
+    </ul>
+  </div>
+</aside>

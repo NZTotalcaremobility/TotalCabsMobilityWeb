@@ -1,0 +1,118 @@
+<app-top-header></app-top-header>
+<!-- MAIN -->
+<section class="banner">
+  <!-- BANNER HEADER -->
+  <app-second-menu></app-second-menu>
+  <!-- /BANNER HEADER -->
+  <div class="sld1 min-het min-50-het banner-overly" style="background-image: none">
+    <div class="carousel-caption crsl-mdl">
+      <h2>Booking Enquiry</h2>
+    </div>
+  </div>
+</section>
+<!-- /MAIN -->
+
+<!-- THE FLEET -->
+<section class="section-block sec-2">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-xl-8 mb-3">
+        <div class="alert alert-danger">
+          <i class="fa fa-warning mr-2"></i>
+          All enquiries must be a least <strong> 24 hours</strong> prior to booking. For immediate bookings please phone your local Driving Miss Daisy.
+        </div>
+      </div>
+      <div class="col-12 col-xl-8">
+        <div class="card p-4 shadow bg-white">
+          <form>
+            <div class="form-row">
+              <div class="col-12 col-md-12 form-group">
+                <label class="mb-1">
+                  <strong> Name <span class="red">*</span></strong>
+                </label>
+                <input type="text" class="form-control fs-16" placeholder="First name" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 col-md-6 form-group">
+                <label class="mb-1">
+                  <strong>Email <span class="red">*</span> </strong>
+                </label>
+                <input type="text" class="form-control fs-16" placeholder="Enter your email address" />
+              </div>
+              <div class="col-12 col-md-6 form-group">
+                <label class="mb-1"><strong>Phone Number </strong></label>
+                <input type="text" class="form-control fs-16" placeholder="Enter your phone number" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 col-md-12 form-group">
+                <label class="mb-1"><strong>Home address</strong></label>
+                <input type="text" class="form-control fs-16" placeholder="Enter a location " />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 col-md-12 form-group">
+                <div class="d-flex justify-content-between">
+                  <label class="mb-1">
+                    <strong>Pickup address <span class="red">*</span></strong>
+                  </label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                    <label class="form-check-label" for="defaultCheck1"> Use Home Address </label>
+                  </div>
+                </div>
+                <input type="text" class="form-control fs-16" placeholder="Enter a location " />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 col-md-12 form-group">
+                <label class="mb-1"><strong>Drop off address</strong></label>
+                <input type="text" class="form-control fs-16" placeholder="Enter a location " />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 col-md-6 form-group">
+                <label class="mb-1">
+                  <strong>Pickup date <span class="red">*</span></strong>
+                </label>
+                <input type="text" placeholder="Pick Date" class="form-control fs-16" bsDatepicker [bsConfig]="{ isAnimated: true }" />
+              </div>
+              <div class="col-12 col-md-6 form-group">
+                <label class="mb-1">
+                  <strong>Pickup time <span class="red">*</span></strong>
+                </label>
+                <input type="time" placeholder="Pickup time" class="form-control fs-16" />
+              </div>
+              <div class="col-12 col-md-6 form-group">
+                <label class="mb-1">
+                  <strong>Appointment time</strong>
+                </label>
+                <input type="time" placeholder="Pickup time" class="form-control fs-16" />
+              </div>
+            </div>
+            <div class="form-row mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                <label class="form-check-label bold" for="defaultCheck1"> Wheelchair Accessible Vehicle required? </label>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 col-md-12 form-group">
+                <label class="mb-1"><strong>Further Details</strong></label>
+                <textarea class="form-control fs-16" id="exampleFormControlTextarea1" rows="3" placeholder="Let us know anything important"></textarea>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 col-md-12 form-group">
+                <button class="btn btn-green">Submit <i class="fa fa-send"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /THE FLEET -->
+<app-footer></app-footer>

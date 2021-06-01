@@ -1,0 +1,66 @@
+<div class="login-register-wrap container-fluid">
+    <div class="row" >
+        <div class="col-lg-3"></div>
+        <!-- <div class="col-lg-6 login-register-left">
+            <div class="login-register-left-in">
+                <figure class="logo text-center">
+                    <img src="../../assets/images/logo-new.svg" width="300" alt="logo" />
+                </figure> 
+            </div>
+        </div>   -->
+        <div class="col-lg-6  login-register-right">
+            <div class="login-register-right-in">
+                <div class="login-register-title">
+                    <h3><small>Hello</small><br>Get moving with Total Care Mobility</h3>
+                </div>
+                <div class="login-register-action">
+                    <form [formGroup]="loginForm" (submit)="login()">
+
+                        <div class="form-group field-cover has-icon" [ngClass]="{'has-error': (loginForm.controls['email'].hasError('pattern') || loginForm.controls['email'].hasError('required')) && isSubmited}">
+                            <label for="useremail">
+                              Email or Phone
+                              <!-- <span class="error ml-1" *ngIf="loginForm.controls['email'].hasError('pattern') && isSubmited ">(Email not valid) </span>
+                            <span class="error ml-1" *ngIf="loginForm.controls['email'].hasError('required') && isSubmited">(Email is required)</span> -->
+                            </label>
+                            <i class="zmdi zmdi-account-o icon"></i>
+                            <input id="useremail" formControlName="email" type="email" class="form-control" placeholder="Enter your email id/password" />
+                        </div>
+                        <div class="form-group">
+                            <div class=" field-cover has-icon" [ngClass]="{'has-error': (loginForm.controls['password'].hasError('required') || loginForm.controls['password'].hasError('minlength') || loginForm.controls['password'].hasError('maxlength')) && isSubmited}">
+                                <label for="userpassword">
+                                  Password
+                                  <span class="error ml-1" *ngIf="loginForm.controls['password'].hasError('required') && isSubmited">(Password is required )</span>
+                                  <span class="error ml-1" *ngIf="loginForm.controls['password'].hasError('minlength') && isSubmited">(Minimum 8 characters required)</span>
+                                  <span class="error ml-1" *ngIf="loginForm.controls['password'].hasError('maxlength') && isSubmited">(Maximum 16 characters allowed)</span>
+                                </label>
+                                <i class="zmdi zmdi-lock-open icon"></i>
+                                <input id="userpassword" formControlName="password" type="password" class="form-control" placeholder="Enter your Password" />
+
+                            </div>
+                            <div class="text-right mt-2">
+                                <a routerLink="/forgotpassword" class="text-green">Forgot Password?</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit"  class="btn btn-green d-block full-width">Login</button>
+                        </div>
+                        <div class="form-group text-center">
+                            Or
+                        </div>
+                    </form>
+                    <!-- <div class="form-group">
+                        <a routerLink="/login-phone" class="btn btn-green-outline d-block full-width">Continue with Phone Number</a>
+                    </div> -->
+                    <div class="form-group">
+                        <a routerLink="/register" class="btn btn-green-outline d-block full-width">Sign Up</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; 2020 - totalcare
+            </div>
+        </div>
+    </div>
+</div>

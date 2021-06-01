@@ -1,0 +1,61 @@
+@import "../../../styles.scss";
+
+.header-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  background: var(--white);
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: var(--title-color);
+        font-size: var(--font-16);
+        font-weight: 400;
+        padding-left: 12px;
+        padding-right: 12px;
+        font-family: var(--poppin);
+        border: none;
+        background: none;
+
+        &:focus {
+          outline: none;
+        }
+
+        &.active {
+          color: var(--green);
+        }
+      }
+      &.active {
+        .nav-link {
+          color: var(--green);
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .mydialog {
+  width: 60vw;
+  height: 40vw;
+}
+
+@media screen and (max-width: 40em) {
+  ::ng-deep .mydialog {
+    width: 75vw;
+  }
+}
+
+::ng-deep .otpdialog {
+  width: 60vw;
+  height: 40vw;
+}
+
+@media screen and (max-width: 40em) {
+  ::ng-deep .otpdialog {
+    width: 75vw;
+    height: 100vw;
+  }
+}

@@ -1,0 +1,60 @@
+<div class="profile">
+
+
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="panal">
+        <div class="panal-body">
+          <div class="row align-items-center">
+            <div class="col-lg-4 col-xl-2">
+              <div class="profile-img-wrap">
+                <img src={{environment.imageurl}}{{profile}} class="profile-img" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-8 col-xl-10">
+              <div class="row">
+                <div class="col-md-6 userinfo">
+                  Name: <h5 class="name">{{customerdata?.name}}</h5>
+                  Email: <p class="mb-0">{{customerdata?.email}} <br /> PhoneNumber: {{customerdata?.phonenumber}}</p>
+                </div>
+                <div class="col-md-6 text-center">
+                  <a class="link-delete" [routerLink]="['/user/page/edit-profile']"
+                    style="margin-bottom: 5%;width: 170px;" class="btn btn-green-outline btn-lg">Edit Profile</a> <br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="panal">
+      <div class="panal-body">
+        <div class="row">
+          <div class="col-md-3">
+            <h5 class="wt-600">USA</h5>
+            <p class="mb-0">Locatoin</p>
+          </div>
+          <div class="col-md-3">
+            <h5 class="wt-600">English</h5>
+            <p class="mb-0">Language</p>
+          </div>
+          <div class="col-md-3">
+            <h5 class="wt-600">xyz@mail.com</h5>
+            <p class="mb-0">Invite Code</p>
+          </div>
+          <div class="col-md-3">
+            <a href="#" class="btn btn-green btn-lg">Invite Now</a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+      <div>
+        <div *ngIf="customerdata?.email !=null">
+          <a [routerLink]="['/user/page/change-password']" routerLinkActive="router-link-active"
+            class="btn btn-green-outline btn-lg">Change Password</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

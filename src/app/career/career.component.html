@@ -1,0 +1,217 @@
+<app-top-header></app-top-header>
+
+<!-- MAIN -->
+<section class="banner">
+    <!-- BANNER HEADER -->
+    <!-- <nav class="navbar navbar-expand-md navbar-light bg-light nav-banner">
+        <div class="container">
+            <button class="navbar-toggler bnr-nvtgl" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContentsb" aria-controls="navbarSupportedContentsb" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="iconmenu">
+                    <span class="iconbar">
+                    </span>
+                    <span class="iconbar icn-sb2">
+                    </span>
+                    <span class="iconbar icn-sb3">
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContentsb">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="javascript:void(0);">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="javascript:void(0);">Services</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="javascript:void(0);">
+                            Career
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="javascript:void(0);">Rental</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="javascript:void(0);">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+    <app-second-menu></app-second-menu>
+    <!-- /BANNER HEADER -->
+
+    <div class=" sld1 min-het banner-overly" style="background-image: url(../../assets/images/Servicesphoto.jpg);">
+        <div class="carousel-caption crsl-mdl">
+            <h2>
+                Want to drive for Total Care Mobility?
+            </h2>
+        </div>
+    </div>
+</section>
+<!-- /MAIN -->
+<section class="sec-2">
+    <div class="container">
+        <div class="">
+            <h3 class="mb-5 text-center">Requirements to become a Total Care Mobility Driver</h3>
+            <div class="d-flex justify-content-center">
+                <ol class="text-center req-list">
+                    <li class="fs-16"><i class="fa fa-check"></i><span> P-endorsement </span></li>
+                    <li class="fs-16"><i class="fa fa-check"></i><span> Current First Aid</span></li>
+                    <li class="fs-16"><i class="fa fa-check"></i><span> Driver training </span></li>
+                    <li class="fs-16"><i class="fa fa-check"></i> <span>Police Clearance</span></li>
+                    <li class="fs-16"><i class="fa fa-check"></i> <span>NZQA – approved Total Mobility Unit
+                            Standards</span>
+                    </li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- <section class="sec-6">
+    <div class="container position-relative z-1">
+        <div class="p-4">
+            <div class="d-flex p-3 justify-content-center align-items-center">
+                <div class="col1 px-2">
+                    <h4 class="m-0">Want to drive for Total Care Mobility?</h4>
+                </div>
+                <div class="col2 px-2">
+                    <a href="mailto:admin@totalcaremobility.co.nz" class="btn btn-green btn-lg text-uppercase">
+                        Send Enquiry Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="sec-4">
+    <div class="container">
+        <div class="mt-0">
+            <div class="text-center mb-4">
+                <!-- <h3 class="mb-5">Daisy Driver Enquiry Form</h3> -->
+                <p class="fs-18">If you have read the information above and would like to register your interest to
+                    become a Driving Miss Daisy Driver please complete the form below:</p>
+            </div>
+            <div class="border rounded bg-light rounded-lg p-4">
+                <form [formGroup]='careerForm'>
+                    <div class="form-row">
+                        <div class="col-12 col-md-6 form-group">
+                            <label class="mb-1"><strong>First Name <span class="red">*</span></strong></label>
+                            <input formControlName="fname" type="text" class="form-control fs-16"
+                                placeholder="First name">
+                            <span class="text-danger"
+                                *ngIf="careerForm.controls['fname'].hasError('required') && isSubmited">(First Name
+                                is required)</span>
+                        </div>
+                        <div class="col-12 col-md-6 form-group">
+                            <label class="mb-1"><strong>Last Name <span class="red">*</span></strong></label>
+                            <input formControlName="lname" type="text" class="form-control fs-16"
+                                placeholder="Last name">
+                            <span class="text-danger"
+                                *ngIf="careerForm.controls['lname'].hasError('required') && isSubmited">(Last Name
+                                is required)</span>
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-12 col-md-6 form-group">
+                            <label class="mb-1"><strong>Email <span class="red">*</span></strong></label>
+                            <input formControlName="email" type="text" class="form-control fs-16" placeholder="Email ">
+                            <span class="text-danger"
+                                *ngIf="careerForm.controls['email'].hasError('required') && (careerForm.controls['email'].dirty || careerForm.controls['email'].touched)">This
+                                field is required</span>
+                            <span class="text-danger"
+                                *ngIf="careerForm.controls['email'].hasError('pattern') && (careerForm.controls['email'].dirty || careerForm.controls['email'].touched)">Please
+                                enter valid email address</span>
+
+                        </div>
+                        <div class="col-12 col-md-6 form-group">
+                            <label class="mb-1"><strong>Phone Number <span class="red">*</span></strong></label>
+                            <input formControlName="phonenumber" type="tel" class="form-control fs-16"
+                                placeholder="Phone Number ">
+                            <span class="text-danger"
+                                *ngIf="careerForm.controls['phonenumber'].hasError('required') && isSubmited">(Phone
+                                is required)</span>
+                            <span class="text-danger"
+                                *ngIf="careerForm.controls['phonenumber'].hasError('pattern')">This
+                                field is required 10 digits</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-12 col-md-12 form-group">
+                            <label class="mb-1"><strong>Are you available for weekend work?</strong></label>
+                            <div>
+                                <div class="custom-control custom-radio">
+                                    <input formControlName="isWeekend" value="true" type="radio" id="customRadio1"
+                                        name="isWeekend" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio1">Yes</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input formControlName="isWeekend" value="false" type="radio" id="customRadio2"
+                                        name="isWeekend" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio2">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-12 col-md-12 form-group">
+                            <label class="mb-1"><strong>Do you have a current passenger endorsement (p-endorsement) on
+                                    your
+                                    Driver's Licence? <span class="red">*</span></strong></label>
+                            <div>
+                                <div class="custom-control custom-radio">
+                                    <input formControlName="pEndorsement" type="radio" id="customRadio11"
+                                        name="pEndorsement" class="custom-control-input" value="true">
+                                    <label class="custom-control-label" for="customRadio11">Yes</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input formControlName="pEndorsement" type="radio" id="customRadio21"
+                                        name="pEndorsement" class="custom-control-input" value='false'>
+                                    <label class="custom-control-label" for="customRadio21">No</label>
+                                </div>
+                                <span class="text-danger"
+                                    *ngIf="careerForm.controls['pEndorsement'].hasError('required') && isSubmited">(
+                                    required)</span>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                        <div class="col-12 col-md-12 form-group">
+                            <label class="mb-1"><strong>Further Comments</strong></label>
+                            <textarea formControlName="comments" class="form-control fs-16"
+                                id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <span class="text-danger"
+                                *ngIf="careerForm.controls['comments'].hasError('required') && isSubmited">(Comments
+                                is required)</span>
+
+                        </div>
+                    </div>
+                    <div class="form-row m-0">
+                        <div class="col-12 col-md-12 form-group">
+                            <button type="type" (click)='submitForm()' class="btn btn-green btn-lg">
+                                Send <i class="fa fa-send"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<app-footer></app-footer>

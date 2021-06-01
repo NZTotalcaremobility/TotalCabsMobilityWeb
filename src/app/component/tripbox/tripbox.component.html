@@ -1,0 +1,69 @@
+<div class="tripbox">
+
+  <div class="panel panal" *ngFor="let item of bookingData ">
+    <div class="panal-body border">
+      <div class="tripbox-top">
+        <div class="tripbox-top-left">
+          <div class="driver-info">
+            <div class="row align-items-center">
+              <div class="col-5 col-sm-5 col-md-4 col-lg-3">
+                 <div class="driver-jobid">
+                 <label>Jobid</label>
+             <p class="billgst-number text-green">{{item?.jobid?.jobid}}</p>
+          </div>
+              </div>
+                <div class="col-5 col-sm-5 col-md-4 col-lg-3">
+              <div class="driver-jobid">
+                 <label>Tripdate</label>
+             <p class="billgst-number text-green">{{item?.jobid?.bookingDate||item?.jobid?.dateOfJourney | date : "dd.MM.yyyy" }}</p>
+          </div>
+        </div>
+          <div class="col-5 col-sm-5 col-md-4 col-lg-3">
+           <div class="driver-jobid">
+                 <label>TripTime</label>
+             <p class="billgst-number text-green">{{item?.jobid?.pickUptime}}</p>
+          </div>
+        </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-5 col-sm-5 col-md-4 col-lg-3">
+          <div class="driver-paymentinfo">
+            <label>Trip total</label>
+            <p class="billgst-number text-green">${{item?.Amount.toFixed(0) ||0}}</p>
+             
+          </div>
+         
+        </div>
+      </div>
+      <div class="tripbox-middle">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="pickpoint">
+              <span class="pickpoint-label">Pick Up From</span>
+              <label class="d-block pickpoint-area">{{item.jobid?.pickupLocation?.address}}</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="droppoint">
+              <span class="droppoint-label">Drop</span>
+              <label class="d-block droppoint-area">{{item.jobid?.dropLocation?.address}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tripbox-bottom">
+
+        <a href="javascript:void(0)" class=""><i class="icon mr-1 zmdi zmdi-calendar text-green"></i>{{item?.createdAt |
+          date : "dd.MM.y"}}</a>
+        <a [routerLink]="['/user/page/recipt',item._id]" (click)="Edit(item._id)" class=""><i
+            class="icon mr-1 zmdi zmdi-eye text-green"></i> View Recipt</a>
+        <a href="javascript:void(0)" class=""><i class="icon mr-1 zmdi zmdi-check-circle"></i>
+          {{item.jobid?.tripstatus}}</a>
+      </div>
+    </div>
+  </div>
+  <!-- <pagination-controls (pageChange)= " p = $event"></pagination-controls> -->
+ 
+</div>

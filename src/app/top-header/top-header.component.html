@@ -1,0 +1,46 @@
+<!-- HEADER -->
+<nav class="navbar navbar-expand-md navbar-light main-nav-hd bg-light z-10">
+    <div class="container">
+        <a class="navbar-brand" [routerLink]="['/']">
+            <img src="../../assets/images/logo-new.svg" width="60px" />
+        </a>
+        <p class="phone-label"><i class="fa fa-phone"></i><a href="tel:0800 00 3131">0800 00 3131</a></p>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto nav-btn-list">
+                <li class="nav-item">
+                    <a class="nav-link active" [routerLink]="['/']">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/search/cab']">Book Now</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/ride']">Track Cab</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" [routerLink]="['/calculate']"> Calculate Fare </a>
+                </li>
+                <li *ngIf="isUserLoggedIn" class="nav-item">
+                    <a class="nav-link" [routerLink]="['/user/page/profile']"><i class="fa fa-user-o"></i> My
+                        Account <span class="caret"></span>
+                    </a>
+                </li>
+                <li *ngIf="!isUserLoggedIn" class="nav-item dropdown" dropdown>
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="button-basic" dropdownToggle
+                        aria-controls="dropdown-basic"><i class="fa fa-user-o"></i> My
+                        Account <span class="caret"></span></a>
+                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu"
+                        aria-labelledby="button-basic">
+                        <li role="menuitem"><a class="dropdown-item" [routerLink]="['/login']">Login</a></li>
+                        <li role="menuitem"><a class="dropdown-item" [routerLink]="['/register']">Register</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- /HEADER -->

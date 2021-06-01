@@ -1,0 +1,176 @@
+<app-top-header></app-top-header>
+<main class="main-container">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-md-5 col-lg-4  ">
+                <div class="left-sidebar d-flex flex-column h-100">
+                    <div class="search-box mb-4">
+                        <div class="from search-input">
+                            <input type="text" class="form-control" placeholder="From">
+                            <i class="icon-input">
+                                <img src="../../assets/images/clock-circular-outline.svg" alt="">
+                            </i>
+                        </div>
+                        <hr>
+                        <div class="destination search-input">
+                            <input type="text" class="form-control" placeholder="Destination">
+                            <i class="icon-input">
+                                <img src="../../assets/images/clock-circular-outline.svg" alt="">
+                            </i>
+                        </div>
+                    </div>
+                    <div *ngIf="calculateIsShown">
+                        <div class="d-block mb-2">
+                            <div class="ride-time relative mb-2">
+                                <i class="icon-input-prefix">
+                                    <img src="../../assets/images/clock-circular-outline-black.svg" alt="">
+                                </i>
+                                <select class="custom-select ride-select" id="rideTime" #mySelect
+                                    (change)='onOptionsSelected(mySelect.value)'>
+                                    <option selected>Choose...</option>
+                                    <option value="now">Now</option>
+                                    <option value="later">Later</option>
+                                </select>
+                            </div>
+                            <div class="ride-calendar " id="later" *ngIf="rideTimelater">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 mb-2">
+                                        <input type="date" id="input-calendar " class="form-control" name="calendar">
+                                    </div>
+                                    <div class="col-12 col-lg-6 mb-2">
+                                        <input type="time" id="input-calendar " class="form-control" name="calendar">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <ul class="ride-list w-100">
+                                <li>
+                                    <div class="ride-info">
+                                        <div class="vhl-img">
+                                            <figure>
+                                                <img src="../../assets/images/ic_mini.png" alt="">
+                                            </figure>
+                                            <div class="est-time">6min</div>
+                                        </div>
+                                        <div class="vhl-name">
+                                            Mini
+                                        </div>
+                                        <div class="vhl-ride-price">
+                                            $20.35
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="ride-info">
+                                        <div class="vhl-img">
+                                            <figure>
+                                                <img src="../../assets/images/ic_prime.png" alt="">
+                                            </figure>
+                                            <div class="est-time">7min</div>
+                                        </div>
+                                        <div class="vhl-name">
+                                            Maxi - 9 Seater
+                                        </div>
+                                        <div class="vhl-ride-price">
+                                            $30.35
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="ride-info">
+                                        <div class="vhl-img">
+                                            <figure>
+                                                <img src="../../assets/images/ic_WheelchairCab.png" alt="">
+                                            </figure>
+                                            <div class="est-time">15min</div>
+                                        </div>
+                                        <div class="vhl-name">
+                                            Wheelchair Cab
+                                        </div>
+                                        <div class="vhl-ride-price">
+                                            $25.35
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="step-2" *ngIf="stepTwo">
+                        <div class="d-flex mb-3">
+                            <div class="ride-time relative w-50" id="ride-time">
+                                <i class="icon-input-prefix">
+                                    <img src="../../assets/images/icon-cash.png" alt="">
+                                </i>
+                                <select class="custom-select ride-select w-100">
+                                    <option value="cash">Cash</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="d-flex w-100">
+                            <div class="cab-dtl">
+                                <h4 class="cab-dtl-ttl">Cab Type</h4>
+                                <div class="cab-dtl-info">
+                                    <div class="d-flex align-items-center mb-1">
+                                        <div class="cab-dtl-info-img"> <img src="../../assets/images/ic_prime.png"
+                                                alt="">
+                                        </div>
+                                        <div class="cab-dtl-info-ttl ">9 Seater Van</div>
+                                    </div>
+                                    <div class="cab-dtl-info-desc">
+                                        In 6min 12:20PM dropoff <br>
+                                        9Seats, Affortable, compact rides.
+                                    </div>
+                                </div>
+                                <ul class="farelinst-dtl">
+                                    <li class="row">
+                                        <div class="col-6">Fare </div>
+                                        <div class="col-6">$76.76 </div>
+                                    </li>
+                                    <li class="row">
+                                        <div class="col-6">Total Km</div>
+                                        <div class="col-6">12.1Km</div>
+                                    </li>
+                                </ul>
+                                <div class="ride-info-box">
+                                    <div>
+                                        " Half Price Trips" </div>
+                                    <div>*For total mobility scheme, Conditions Apply*
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="not-available-ride" *ngIf="confirmBook">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                Online booking is not available please call on below number for cab booking <br>
+                                <strong>+18-47-555-5555</strong>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="mt-auto" id="bookNow-holder">
+                        <button (click)="calculateFare()" *ngIf="btnCalculatefare"
+                            class="btn btn-primary green-btn btn-lg w-100 ">
+                            Calculate
+                        </button>
+                        <button class="btn btn-primary green-btn btn-lg w-100 " id="rideNow" *ngIf="btnRideNow"
+                            (click)="RidenowNext()">
+                            Ride Now
+                        </button>
+                        <button class="btn btn-primary green-btn btn-lg w-100 " id="confirmBook" *ngIf="confirmBook">
+                            Confirm & Book
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-lg-8 px-0">
+                <div class="routemap-holder d-flex flex-column w-100 h-100">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

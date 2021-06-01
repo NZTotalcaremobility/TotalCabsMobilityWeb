@@ -1,0 +1,111 @@
+<div class="container bg-white pl-0 pr-0">
+  <div class="row no-gutters">
+    <div class="col-md-4 border-right">
+      <div class="settings-tray">
+        <img class="profile-image" src="{{image}}" alt="Profile img">
+        <!-- <span class="settings-tray--right">
+          <i class="material-icons">cached</i>
+          <i class="material-icons">message</i>
+          <i class="material-icons">menu</i>
+        </span> -->
+      </div>
+      <!-- <div class="search-box">
+        <li class="nav-item hidden-sm-down search-box">
+          <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" (click)="searchField = true"
+              href="javascript:void(0) ">
+              <i class="ti-search"></i>
+          </a>
+          <form [formGroup]="searchForm" class="app-search d-block" *ngIf="searchField">
+              <input type="text " class="form-control border-0" placeholder="Search & Enter"
+                  formControlName="string" (keyup)="handleSearch()" />
+              <a class="srh-btn"> <i class="ti-close" (click)="searchField = false"></i></a>
+
+              <div class="list-group autocomplteList">
+                  <a *ngIf="searchResult.length === 0" (click)="searchField = false"
+                      class="list-group-item list-group-item-action"> No user Found</a>
+                  <a *ngFor="let item of searchResult" (click)="searchField = false"
+                      [routerLink]="['/users/details', item?._id, 'jobs']"
+                      class="list-group-item list-group-item-action"> <img
+                          src="{{ imagePath }}{{ item.imagefile || 'profile-pic.jpg' }}" alt=""
+                          class="profile-pic" />{{ item?.name }} - {{ item?.email }}</a>
+              </div>
+          </form>
+      </li>
+      </div> -->
+      <div *ngFor="let driver of drivers">
+      
+      <div class="friend-drawer friend-drawer--onhover" (click)="messageHistory(driver)" >
+        <img class="profile-image" src={{image_url}}{{driver.receiver?.imagefile}} alt="">
+        <ng-container *ngIf="driver.sender._id == userId; else otheruser">
+          <div class="text">
+            <h6>{{driver.receiver.name}}</h6>
+            <p class="text-muted">{{driver.message}}</p>
+          </div>
+        </ng-container>
+        <ng-template #otheruser>
+          <div class="text">
+            <h6>{{driver.sender.name}}</h6>
+            <p class="text-muted">{{driver.message}}</p>
+          </div>
+        </ng-template>
+    
+        <span class="time text-muted small">13:21</span>
+      </div>
+    </div>
+
+   
+    </div>
+    <div class="col-md-8">
+      <div class="settings-tray" *ngIf="slectedDriver">
+          <div class="friend-drawer no-gutters friend-drawer--grey">
+          <img class="profile-image" src={{image}} alt="">
+          <div class="text">
+            <h6>{{slectedDriver.receiver.name}}</h6>
+            <!-- <p class="text-muted">{{slectedDriver.message}}</p> -->
+          </div>
+          <span class="settings-tray--right">
+            <!-- <i class="material-icons">cached</i>
+            <i class="material-icons">message</i>
+            <i class="material-icons">menu</i> -->
+          </span>
+        </div>
+      </div>
+    
+    <div class="chat-panel">
+      
+      <div  *ngFor="let message of messageArray    ">
+     
+        <div class="row no-gutters" *ngIf="slectedDriver.receiver._id === message.sender._id ;  else elseTemplate">
+          <div class="col-md-3">
+            <div class="chat-bubble chat-bubble--left" >
+              {{message.message}}
+            </div>
+          </div>
+        </div>
+        <ng-template #elseTemplate>
+          
+          <div class="row no-gutters">
+            <div class="col-md-3 offset-md-9">
+              <div class="chat-bubble chat-bubble--right">
+                {{message.message  }}
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+
+      </div>
+        <div class="row" *ngIf="slectedDriver">
+          <div class="col-12">
+            <div class="chat-box-tray">
+              <!-- <i class="material-icons">sentiment_very_satisfied</i> -->
+              <input type="text" [(ngModel)]="messageText" placeholder="Type your message here...">
+              <!-- <button class="btn btn-sm"><i class="material-icons">mic</i></button> -->
+              <button class="btn btn-sm" (click)="sendMessage()"><i class="material-icons">send</i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

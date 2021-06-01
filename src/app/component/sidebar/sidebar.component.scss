@@ -1,0 +1,50 @@
+@import '../../../styles.scss';
+
+.layout-sidebar{
+  position: fixed;
+  z-index: 2;
+  padding-top: 80px;
+  height: 100%;
+  background: var(--white);
+  box-shadow: 0px 0px 10px #0000000F;
+  width: var(--w-242);
+  overflow-y: auto;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(0);
+  left: 0;
+  top: 0;
+
+  @media(max-width: 991px){
+    transform: translateX(calc(-1 * (var(--w-242) + 50px)));
+  }
+
+  &.show-sidebar{
+    @media(max-width: 991px){
+      transform: translateX(0);
+    }
+  }
+
+  .navlist{
+    .navbar-item{
+      .navbar-link{
+        position: relative;
+        padding: 12px 12px 10px;
+        font-size: var(--font-16);
+        color: var(--title-color);
+        display: block;
+        &.has-licon{
+          padding-left: 55px;
+          .licon{
+            font-size: 20px;
+            position: absolute;
+            left: 30px;
+            top: 15px;
+          }
+        }
+        &.has-ricon{
+          padding-right: 30px;
+        }
+      }
+    }
+  }
+}

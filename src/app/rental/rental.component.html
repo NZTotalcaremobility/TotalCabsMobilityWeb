@@ -1,0 +1,183 @@
+<app-top-header></app-top-header>
+
+<!-- MAIN -->
+<section class="banner">
+  <!-- BANNER HEADER -->
+  <app-second-menu></app-second-menu>
+  <!-- /BANNER HEADER -->
+  <div class="sld1 min-het min-50-het banner-overly" style="background-image: none">
+    <div class="carousel-caption crsl-mdl">
+      <h2>Rental</h2>
+    </div>
+  </div>
+</section>
+<!-- /MAIN -->
+
+<!-- THE FLEET -->
+<section class="section-block sec-2">
+  <div class="container">
+    <form [formGroup]="rentalForm">
+      <h3 class="text-center center-title">Enquiry Form</h3>
+      <div class="row">
+        <div class="col-12">
+          <div class="card p-4 shadow bg-white">
+            <div class="form-row">
+              <div class="col-12 form-group">
+                <label class="mb-1"><strong>Please Select Any fleet <span class="red">*</span></strong></label>
+                <ng-select placeholder="{{!placeHolder?'Select Any Fleet':''}}" [items]="fleets"
+                  [(ngModel)]="selectedFleet" [ngModelOptions]="{standalone: true}" bindLabel="name" bindValue="name"
+                  classes="form-control" class="form-control">
+                  <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                    <div class="item" (click)="handlselect(item.name)">
+                      <div class="card">
+                        <div class="card-top-mb">
+                          <div class="row">
+                            <div class="col-lg-2 col-md-3 col-sm-4">
+                              <img src="{{item.avatar}}" width="50%" />
+                            </div>
+                            <div class="col-lg-10 col-md-9 col-sm-8">
+                              <h6>{{item.name}}</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+                </ng-select>
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['fleet'].hasError('required') && (rentalForm.controls['fleet'].dirty || rentalForm.controls['fleet'].touched)">This
+                  field is required</span>
+              </div>
+              <div class="col-12 col-md-6 form-group">
+                <label class="mb-1"><strong>First Name <span class="red">*</span></strong></label>
+                <input type="text" class="form-control fs-16" placeholder="First name" formControlName="firstName" />
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['firstName'].hasError('required') && (rentalForm.controls['firstName'].dirty || rentalForm.controls['firstName'].touched)">This
+                  field is required</span>
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['firstName'].hasError('validOnlyCharField') && (rentalForm.controls['firstName'].dirty || rentalForm.controls['firstName'].touched)">This
+                  field is required only charecter</span>
+              </div>
+              <div class="col-12 col-md-6 form-group">
+                <label class="mb-1"><strong>Last Name <span class="red">*</span></strong></label>
+                <input type="text" class="form-control fs-16" placeholder="Last name" formControlName="lastName" />
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['lastName'].hasError('required') && (rentalForm.controls['lastName'].dirty || rentalForm.controls['lastName'].touched)">This
+                  field is required</span>
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['lastName'].hasError('validOnlyCharField') && (rentalForm.controls['lastName'].dirty || rentalForm.controls['lastName'].touched)">This
+                  field is required only charecter</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-6 col-md-6 form-group">
+                <label class="mb-1">
+                  <strong>Email <span class="red">*</span> </strong>
+                </label>
+                <input type="text" class="form-control fs-16" placeholder="Email " formControlName="email" />
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['email'].hasError('required') && (rentalForm.controls['email'].dirty || rentalForm.controls['email'].touched)">This
+                  field is required</span>
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['email'].hasError('pattern') && (rentalForm.controls['email'].dirty || rentalForm.controls['email'].touched)">Please
+                  enter valid email address</span>
+              </div>
+              <div class="col-6 col-md-6 form-group">
+                <label class="mb-1"><strong>Number of passengers</strong></label>
+                <select class="form-control fs-16" formControlName="noOfPassengers" id="noOfPassengers">
+                  <option value="">Number of passengers</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+
+                </select>
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['noOfPassengers'].hasError('required') && (rentalForm.controls['noOfPassengers'].dirty || rentalForm.controls['noOfPassengers'].touched)">This
+                  field is required</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 col-md-6 form-group">
+                <label class="mb-1"><strong>Phone Number </strong></label>
+                <input type="text" class="form-control fs-16" placeholder="Phone Number "
+                  formControlName="phonenumber" />
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['phonenumber'].hasError('required') && (rentalForm.controls['phonenumber'].dirty || rentalForm.controls['phonenumber'].touched)">This
+                  field is required</span>
+                <span class="text-danger" *ngIf="rentalForm.controls['phonenumber'].hasError('pattern')">This
+                  field is required 10 digits</span>
+              </div>
+              <div class="col-12 col-md-6 form-group">
+                <label class="mb-1"><strong>Mobile Number </strong></label>
+                <input type="text" class="form-control fs-16" placeholder="Mobile Number " formControlName="mobNo" />
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['mobNo'].hasError('required') && (rentalForm.controls['mobNo'].dirty || rentalForm.controls['mobNo'].touched)">This
+                  field is required</span>
+                <span class="text-danger" *ngIf="rentalForm.controls['mobNo'].hasError('pattern')">This
+                  field is required 10 digits</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 col-md-6 form-group">
+                <label class="mb-1"><strong>Pick Date <span class="red">*</span></strong></label>
+                <input type="text" placeholder="Pick Date" class="form-control fs-16" bsDatepicker
+                  [bsConfig]="{ isAnimated: true }" formControlName="pickDate" />
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['pickDate'].hasError('required') && (rentalForm.controls['pickDate'].dirty || rentalForm.controls['pickDate'].touched)">This
+                  field is required</span>
+              </div>
+
+              <div class="col-12 col-md-6 form-group">
+                <label class="mb-1"><strong>Drop-off Date <span class="red">*</span></strong></label>
+                <input type="text" placeholder="Drop-off Date" class="form-control fs-16" bsDatepicker
+                  [bsConfig]="{ isAnimated: true }" formControlName="dropDate" />
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['dropDate'].hasError('required') && (rentalForm.controls['dropDate'].dirty || rentalForm.controls['dropDate'].touched)">This
+                  field is required</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-12 col-md-12 form-group">
+                <label class="mb-1"><strong>Type of wheelchair/mobility equipment to consider and other
+                    luggage</strong></label>
+                <textarea class="form-control fs-16" id="exampleFormControlTextarea1" rows="3"
+                  formControlName="equipment"></textarea>
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['equipment'].hasError('required') && (rentalForm.controls['equipment'].dirty || rentalForm.controls['equipment'].touched)">This
+                  field is required</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 col-md-12 form-group">
+                <label class="mb-1">
+                  <strong>Enquiry<span class="red">*</span></strong>
+                </label>
+                <textarea class="form-control fs-16" id="enquiry" rows="3" formControlName="enquiry"></textarea>
+                <span class="text-danger"
+                  *ngIf="rentalForm.controls['enquiry'].hasError('required') && (rentalForm.controls['enquiry'].dirty || rentalForm.controls['enquiry'].touched)">This
+                  field is required</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 col-md-12 form-group">
+                <button class="btn btn-green btn-lg" (click)="submitForm()">Send <i class="fa fa-send"></i></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- /THE FLEET -->
+
+<app-footer></app-footer>

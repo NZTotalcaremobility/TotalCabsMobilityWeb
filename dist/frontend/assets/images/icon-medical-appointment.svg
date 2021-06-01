@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51">
+  <g id="icon-medical-appointment" transform="translate(-238 -603)">
+    <circle id="Ellipse_12" data-name="Ellipse 12" cx="25.5" cy="25.5" r="25.5" transform="translate(238 603)" fill="#2fb654"/>
+    <g id="Solid" transform="translate(226 591)">
+      <path id="Path_1431" data-name="Path 1431" d="M49.425,56h-.908v.908a1.816,1.816,0,0,1-3.632,0V56H42.161v.908a1.816,1.816,0,0,1-3.632,0V56H35.8v.908a1.816,1.816,0,0,1-3.632,0V56H29.448v.908a1.816,1.816,0,1,1-3.632,0V56h-.908a.908.908,0,0,0-.908.908V60.54H50.333V56.908A.908.908,0,0,0,49.425,56Z" transform="translate(0 -30.184)" fill="#fff"/>
+      <path id="Path_1432" data-name="Path 1432" d="M72.908,27.632a.908.908,0,0,0,.908-.908V24.908a.908.908,0,1,0-1.816,0v1.816A.908.908,0,0,0,72.908,27.632Z" transform="translate(-45.276)" fill="#fff"/>
+      <path id="Path_1433" data-name="Path 1433" d="M296.908,27.632a.908.908,0,0,0,.908-.908V24.908a.908.908,0,1,0-1.816,0v1.816A.908.908,0,0,0,296.908,27.632Z" transform="translate(-256.563)" fill="#fff"/>
+      <path id="Path_1434" data-name="Path 1434" d="M184.908,27.632a.908.908,0,0,0,.908-.908V24.908a.908.908,0,1,0-1.816,0v1.816A.908.908,0,0,0,184.908,27.632Z" transform="translate(-150.92)" fill="#fff"/>
+      <path id="Path_1435" data-name="Path 1435" d="M408.908,27.632a.908.908,0,0,0,.908-.908V24.908a.908.908,0,0,0-1.816,0v1.816A.908.908,0,0,0,408.908,27.632Z" transform="translate(-362.207)" fill="#fff"/>
+      <path id="Path_1436" data-name="Path 1436" d="M135.264,206.529A7.264,7.264,0,1,0,128,199.264,7.264,7.264,0,0,0,135.264,206.529Zm-4.54-8.626H133.9v-3.178h2.724V197.9H139.8v2.724h-3.178V203.8H133.9v-3.178h-3.178Z" transform="translate(-98.098 -158.466)" fill="#fff"/>
+      <path id="Path_1437" data-name="Path 1437" d="M24,170.161a.908.908,0,0,0,.908.908H49.425a.908.908,0,0,0,.908-.908V152H24Zm13.167-16.8a8.172,8.172,0,1,1-8.172,8.172A8.182,8.182,0,0,1,37.167,153.362Z" transform="translate(0 -120.736)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,64 @@
+/** Button **/
+
+.btn{
+
+  &.full-width{
+    font: normal normal 300 18px/24px var(--poppin);
+    padding: 12px 15px 12px;
+    font-size: var(--font-20);
+  }
+
+  &.btn-lg{
+    padding: 10px 25px 10px;
+    font-size: var(--font-16);
+  }
+
+  &.btn-green{
+    background: var(--green);
+    color: var(--white);
+    border-color: var(--green);
+    &:hover,
+    &:focus{
+      outline: none;
+      border-color: var(--green);
+      background: transparent;
+      color: var(--green);
+      box-shadow: none;
+    }
+  }
+
+  &.btn-green-outline{
+    background: transparent;
+    color: var(--green);
+    border-color: var(--green);
+    &:hover,
+    &:focus,
+    &.active{
+      outline: none;
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--white);
+      box-shadow: none;
+    }
+  }
+
+  &.btn-grey{
+    background: #F3F3F3;
+    border-radius: 5px;
+    color: #000;
+    .icon{
+      color: #000;
+    }
+  }
+
+  &.btn-disabled{
+    background: var(--gray);
+    color: var(--white);
+    border-color: var(--gray);
+    &:hover,
+    &:focus{
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}

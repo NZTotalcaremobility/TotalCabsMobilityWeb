@@ -1,0 +1,236 @@
+
+<block-ui>
+    <div class="searchbox">
+      <div class="booktaxi">
+        <div class="form-group field-group">
+          <!-- <div>
+                    <span *ngIf="source">
+            
+              <label class="form-label">History - Puszkarska 7H, Cracow</label>
+             
+              <input type="text"   class="form-control"  [value]="pickuplocation"  placeholder="Start Point"
+    
+                (keydown.enter)="$event.preventDefault()" placeholder="Search Pickup Location" autocorrect="off"
+                autocapitalize="off" spellcheck="off" type="text" #search [disabled]="searchTaxi" />
+    
+          </span>
+        </div> -->
+          <div>
+  
+            <label class="form-label">Pick-Up Location</label>
+            <input type="text" class="form-control"  id="pickuploc"
+              placeholder="Start Point" (keydown.enter)="$event.preventDefault()" [value]="favouritePickUpLocation" placeholder="Search Pickup Location"
+              autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search />
+          </div>
+  
+          <button *ngIf="!searchTaxi" class="btn-icon" [ngClass]="{'active': isStartFavourite}"
+            >
+            <i class="far fa-heart icon" [ngClass]="isStartFavourite ? 'fas' : 'far'"></i>
+          </button>
+        </div>
+        <div class="form-group field-group">
+          <div>
+            <label class="form-label">Drop-off Location</label>
+            <input type="text" class="form-control" id="droploc"[value]="favoriteDropLocation" placeholder="End Point"
+              (keydown.enter)="$event.preventDefault()" placeholder="Search Drop Location" autocorrect="off"
+              autocapitalize="off" spellcheck="off" type="text" #destsearch />
+          </div>
+          <button *ngIf="!searchTaxi" class="btn-icon"
+            [ngClass]="{'active': isDestinationFavourite}">
+            <i class="fa-heart icon" [ngClass]="isDestinationFavourite ? 'fas' : 'far'"></i>
+          </button>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-3">
+            <!-- <div class="btn-group btn-dropdown full-width" dropdown>
+          <button id="button-basic" dropdownToggle type="button" class="btn btn-grey dropdown-toggle full">
+            <i class="far fa-clock icon"></i>
+            Now
+          </button>
+           <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+              role="menu" aria-labelledby="button-basic">
+             <li role="menuitem"><a class="dropdown-item " href="#">Schedule Booking</a></li>
+         
+          </ul>
+        </div> -->
+          </div>
+          <div class="col-md-9">
+            <button type="button" *ngIf="!searchTaxi" (click)="getFare()" class="btn btn-green full-width">
+              Search Now
+            </button>
+            <button type="button" class="btn btn-green-outline full-width" (click)="getFare()"
+              *ngIf="searchTaxi && !pickedTaxi">Search Again</button>
+          </div>
+        </div>
+      </div>
+      <div class="bookedtaxi-info mt-3" *ngIf="pickedTaxi && pickedTaxi != '' && searchTaxi">
+  
+        <!-- <div class="mt-3 mb-3">
+        <div class="btn-group btn-dropdown" dropdown>
+          <button id="button-basic" dropdownToggle type="button" class="btn btn-grey dropdown-toggle full">
+            <i class="zmdi zmdi-money-box icon"></i>
+            Cash
+          </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu">
+            <li role="menuitem"><a class="dropdown-item " href="#">Card Payment</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Online Payment</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Wallet Payment</a></li>
+          </ul>
+        </div>
+      </div> -->
+        <!-- <div class="col-md-5">
+          <div class="btn-group btn-dropdown full-width" dropdown>
+            <button id="button-basic" dropdownToggle type="button" class="btn btn-grey dropdown-toggle full">
+              <i class="far fa-clock icon"></i>
+              Booking Time
+            </button>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+              <li role="menuitem"><a class="btn btn-grey full " (click)="nowBooking()">Now Booking</a></li>
+              <li role="menuitem"><a class="btn btn-grey full " (click)="schedueBooking()">Schedule Booking</a></li>
+  
+            </ul>
+          </div>
+        </div> -->
+        <div class="col-md-12">
+          <div class="btn-group">
+            <button id="button-basic" type="button" class="btn btn-primary" (click)="nowBooking()">
+              Book Now
+            </button>
+            <button type="button" class="btn btn-warning" (click)="schedueBooking()">
+              <i class="far fa-clock icon"></i>
+              Schedule Booking
+            </button>
+          </div>
+          <div class="row" *ngIf="!scheduleBookingModal">
+            <div class="col-md-6">
+              <strong>Time</strong> {{bookingTime}}
+            </div>
+            <div class="col-md-5">
+              <strong>Date</strong> {{bookingDate}}
+            </div>
+          </div>
+          <form *ngIf="scheduleBookingModal" [formGroup]="sbForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Schedule date</label>
+                  <input type="date" class="form-control" formControlName="date">
+                  <span class="text-danger"
+                    *ngIf="sbForm.controls['date'].hasError('required') && (sbForm.controls['date'].dirty || sbForm.controls['date'].touched)">This
+                    field is required</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Schedule Time</label>
+                  <input type="time" class="form-control" formControlName="time">
+                  <span class="text-danger"
+                    *ngIf="sbForm.controls['time'].hasError('required') && (sbForm.controls['time'].dirty || sbForm.controls['time'].touched)">This
+                    field is required</span>
+  
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="form-group field-group no-licon">
+          <div>
+            <div class="form-control text-green">{{pickedTaxi.price}}</div>
+          </div>
+        </div>
+        <div class="cabtype mb-3">
+          <label class="cabtype-label">Cab Type</label>
+          <div class="cabtype-info">
+            <div class="cabtype-figure text-center">
+              <figure class="cabtype-icon">
+                <img src="{{pickedTaxi.taxiimage}}" width="70" alt="cab" />
+              </figure>
+              <!-- <div class="reachtime text-center">{{pickedTaxi.time}}</div> -->
+            </div>
+            <div class="cabtype-txt clearfix">
+              <h6 class="cab-type">{{pickedTaxi.taxitype}}</h6>
+              <p class="cab-feature">{{pickedTaxi.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-9">
+            <button (click)="confirmAndBookNow()" type="button" class="btn btn-green full-width">
+              Confirm and Book Now
+            </button>
+          </div>
+          <div class="col-md-3">
+            <button type="button" (click)="searchTaxi = false; pickedTaxi = ''"
+              class="btn btn-default full-width">Back</button>
+          </div>
+        </div>
+      </div>
+      <app-taxilisting *ngIf="searchTaxi && !pickedTaxi" [isLoading]='isLoading' [isDataLoaded]="isDataLoaded"
+        [data]="listresult" (chooseTaxi)="getSelectedTaxi($event)"></app-taxilisting>
+    </div>
+  </block-ui>
+  
+  
+  <!-- <div [style.display]="scheduleBookingModal ? 'block' : 'none'" class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="userModalLabel">Schedule Booking </h5>
+          <button type="button" class="close" data-dismiss="modal" (click)="close()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="sbForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Schedule date</label>
+                  <input type="date" class="form-control" formControlName="date">
+                  <span class="text-danger"
+                    *ngIf="sbForm.controls['date'].hasError('required') && (sbForm.controls['date'].dirty || sbForm.controls['date'].touched)">This
+                    field is required</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Schedule Time</label>
+                  <input type="time" class="form-control" formControlName="time">
+                  <span class="text-danger"
+                    *ngIf="sbForm.controls['time'].hasError('required') && (sbForm.controls['time'].dirty || sbForm.controls['time'].touched)">This
+                    field is required</span>
+  
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-info" data-dismiss="modal" (click)="close()">Cancel</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal"
+            (click)="scheduleBookingData()">Select</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div [style.display]="confirmModal ? 'block' : 'none'" class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#00a19a; color: #fff;">
+          <h4 class="modal-title">Please confirm..</h4>
+          <button type="button" class="close" data-dismiss="modal" (click)="dmhide()">&times;</button>
+        </div>
+  
+        <div class="modal-body">
+  
+          Do You want return booking
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click)="decline()">Cencel</button>
+          <button type="button" class="btn btn-primary" (click)="accept()">OK</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>

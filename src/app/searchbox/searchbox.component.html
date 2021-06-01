@@ -1,0 +1,252 @@
+<block-ui>
+  <div class="searchbox">
+    <div class="booktaxi">
+
+      <div class="form-group field-group">
+        <div>
+          <label class="form-label">Pick-Up Location</label>
+          <input type="text" class="form-control" [value]="favouritePickUpLocation" id="pickuploc"
+            placeholder="Start Point" (keydown.enter)="$event.preventDefault()" placeholder="Search Pickup Location"
+            autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search />
+        </div>
+        <button *ngIf="!searchTaxi" class="btn-icon" [ngClass]="{'active': isStartFavourite}"
+          (click)="favouritePickUp()">
+          <i class="far fa-heart icon" [ngClass]="isStartFavourite ? 'fas' : 'far'"></i>
+        </button>
+      </div>
+      <div class="form-group field-group">
+        <div>
+          <label class="form-label">Drop-off Location</label>
+          <input type="text" class="form-control" [value]="favoriteDropLocation" id="droploc" placeholder="End Point"
+            (keydown.enter)="$event.preventDefault()" placeholder="Search Drop Location" autocorrect="off"
+            autocapitalize="off" spellcheck="off" type="text" #destsearch />
+        </div>
+        <button *ngIf="!searchTaxi" class="btn-icon" (click)="DestinationFavourite()"
+          [ngClass]="{'active': isDestinationFavourite}">
+          <i class="fa-heart icon" [ngClass]="isDestinationFavourite ? 'fas' : 'far'"></i>
+        </button>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-12 text-center">
+          <label class="form-label" *ngIf="">{{step===1&&'Select A Vehicle'}}{{step===2&&'Select Booking Type'}}</label>
+          <!-- <label class="form-label" *ngIf="step===2">Select Booking Type</label>
+          <label class="form-label" *ngIf="step!==1 || step!==2"></label> -->
+        </div>
+        <div *ngIf="step===1 || selectedVehicle==='Mini'" (click)="step===1?selectVehicle('Mini'):false"
+          class="col-sm-4 text-center">
+          <div class="cabtype-info" (click)="selectedVehicle = 'Mini'">
+            <div class="cabtype-figure text-center">
+              <figure class="cabtype-icon">
+                <img src="../../assets/images/sedan.svg" width="70" alt="cab" />
+              </figure>
+            </div>
+            <div class="cabtype-txt clearfix">
+              <h6 class="cab-type">Mini</h6>
+              <p class="cab-feature" style="font-size: 12px;">Comfy hatchbacks at pockets-friendly fares</p>
+            </div>
+          </div>
+          <!-- <app-taxilisting *ngIf="searchTaxi && !pickedTaxi" [isLoading]='isLoading' [isDataLoaded]="isDataLoaded"
+            [data]="listresult" (chooseTaxi)="getSelectedTaxi($event)"></app-taxilisting> -->
+        </div>
+
+
+        <div *ngIf="step===1 || selectedVehicle==='9 Seater Van'" (click)="step===1?selectVehicle('9 Seater Van'):false"
+          class="col-sm-4 text-center">
+          <div class="cabtype-info" (click)="selectedVehicle = '9 Seater Van'">
+            <div class="cabtype-figure text-center">
+              <figure class="cabtype-icon">
+                <img src="../../assets/images/mini.svg" width="70" alt="cab" />
+              </figure>
+            </div>
+            <div class="cabtype-txt clearfix">
+              <h6 class="cab-type">9 Seater Van</h6>
+              <p class="cab-feature" style="font-size: 12px;">Comfy hatchbacks at pockets-friendly fares</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div *ngIf="step===1 || selectedVehicle==='wheelChair Van'"
+          (click)="step===1?selectVehicle('wheelChair Van'):false" class="col-sm-4 text-center">
+          <div class="cabtype-info" (click)="selectedVehicle = 'wheelChair Van'">
+            <div class="cabtype-figure text-center">
+              <figure class="cabtype-icon">
+                <img src="../../assets/images/suv.svg" width="70" alt="cab" />
+              </figure>
+            </div>
+            <div class="cabtype-txt clearfix">
+              <h6 class="cab-type">wheelChair Van</h6>
+              <p class="cab-feature" style="font-size: 12px;">Comfy hatchbacks at pockets-friendly fares</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div *ngIf="(step===2 || step===3 || step===4)  && selectedVehicle" class="col-sm-8 text-center">
+          <div class="row mt-2">
+            <div class="col-md-12">
+              <div class="btn-group">
+                <button id="button-basic" type="button" class="btn btn-outline-info" (click)="nowBooking()">
+                  Book Now
+                </button>
+                <button type="button" class="btn btn-outline-warning" (click)="schedueBooking()">
+                  <i class="far fa-clock icon"></i>
+                  Schedule Booking
+                </button>
+              </div>
+            </div>
+            <div *ngIf="!scheduleBookingModal" class="col-sm-6 p-2">
+              <strong>Time</strong> {{bookingTime}}
+            </div>
+            <div *ngIf="!scheduleBookingModal" class="col-sm-6 p-2">
+              <strong>Date</strong> {{bookingDate}}
+            </div>
+          </div>
+          <form class="row mt-2" *ngIf="scheduleBookingModal" [formGroup]="sbForm">
+            <div class="form-group col-sm-6">
+              <label>Schedule date</label>
+              <input placeholder="dd/mm/yyyy" type="text" class="form-control" [minDate]="minDate"
+                formControlName="date" #dp="bsDatepicker" bsDatepicker>
+              <!-- <input type="date" class="form-control" formControlName="date"> -->
+              <span class="text-danger"
+                *ngIf="sbForm.controls['date'].hasError('required') && (sbForm.controls['date'].dirty || sbForm.controls['date'].touched)">This
+                field is required</span>
+            </div>
+            <div class="form-group col-sm-6">
+              <label>Schedule Time</label>
+              <input type="time" class="form-control" formControlName="time">
+              <span class="text-danger"
+                *ngIf="sbForm.controls['time'].hasError('required') && (sbForm.controls['time'].dirty || sbForm.controls['time'].touched)">This
+                field is required</span>
+            </div>
+          </form>
+        </div>
+
+
+        <div class="col-md-12 pt-3" *ngIf="step===3 && scheduleBookingModal">
+          <div class="row">
+            <div class="col-4">
+              <h6><strong>Duration :</strong> {{duration}}</h6>
+            </div>
+            <div class="col-4">
+              <h6><strong>Total Distance :</strong> {{distance}}</h6>
+            </div>
+            <div class="col-4">
+              <h6><strong>Price :</strong> ${{fare}}</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 pt-3" *ngIf="step===4 && selectedVehicle">
+          <div class="cabtype mb-3" *ngIf="isFound">
+            <label class="cabtype-label">Available Vehicle</label>
+            <div class="cabtype-info">
+              <div class="cabtype-figure text-center">
+                <figure class="cabtype-icon">
+                  <img src="{{pickedTaxi.taxiimage}}" width="70" alt="cab" />
+                </figure>
+                <div class="reachtime text-center">{{pickedTaxi.time}}</div>
+              </div>
+              <div class="cabtype-txt clearfix">
+                <h6 class="cab-type">{{pickedTaxi.taxitype}}</h6>
+                <p class="cab-feature">{{pickedTaxi.description}}</p>
+                <div class="cab-price float-right" #price>${{pickedTaxi.price}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="cabtype mb-3" *ngIf="!isFound">
+            <div class="cabtype-info">
+              <div class="cabtype-figure text-center">
+                <div class="reachtime text-center">Vehicle is not avaiable this time</div>
+              </div>
+              <div class="cabtype-txt clearfix">
+                <h6 class="cab-type">It's a heavy time thanks for connecting.</h6>
+                <p class="cab-feature">Please contact to Admin : <a href="tel:+45694856456">+5465466654</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 pt-3" *ngIf="step===5">
+          <div class="row">
+            <div class="col text-center">
+              <h6><strong>Your Booking Confirmed!</strong></h6>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="(step===2 || step===3 || step===4) && selectedVehicle" class="col-md-12 text-center mx-auto">
+          <div class="btn-group w-100">
+            <button type="button" *ngIf="step===3 && !scheduleBookingModal" (click)="getFare()"
+              class="btn btn-green full-width">
+              Search Now
+            </button>
+            <button *ngIf="((step===3 && !isEdit && scheduleBookingModal) || (step===4 && pickedTaxi&& !isEdit))"
+              (click)="confirmAndBookNow()" type="button" class="btn btn-green full-width">
+              Confirm and Schedule
+            </button>
+            <button *ngIf="((step===3 && isEdit && scheduleBookingModal) || (step===4 && pickedTaxi && isEdit))"
+              (click)="confirmAndEdit()" type="button" class="btn btn-green full-width">
+              Confirm and Edit
+            </button>
+            <button *ngIf="(step===3 ||step===2 ||step===4) && selectedVehicle" type="button"
+              (click)="step=step=1;pickedTaxi={};bookingDate='';bookingTime=''"
+              class="btn btn-default full-width">Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bookedtaxi-info mt-3" *ngIf="pickedTaxi && pickedTaxi != '' && searchTaxi">
+    </div>
+  </div>
+</block-ui>
+
+
+<div [style.display]="confirmModal ? 'block' : 'none'" class="modal" id="myModal">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#00a19a; color: #fff;">
+        <h4 class="modal-title">Please confirm..</h4>
+        <button type="button" class="close" data-dismiss="modal" (click)="dmhide()">&times;</button>
+      </div>
+
+      <div class="modal-body">
+
+        Do You want return booking
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="decline()">No</button>
+        <button type="button" class="btn btn-primary" (click)="accept()">Yes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div [style.display]="showModel ? 'block' : 'none'" class="showmodal" id="showModal">
+  <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#00a19a; color: #fff;">
+        <h4 class="modal-title">No driver Accept Your Request..</h4>
+        <button type="button" class="close" data-dismiss="showmodal" (click)="hide()">&times;</button>
+      </div>
+
+      <!-- <div class="modal-body">
+
+     <h4> Date of Journey: {{dateOfJourney | date : "dd.MM.yyyy" }}</h4>
+     <h4>Time Of Journey:{{pickuptime}}</h4>
+      <h4>PickupLocation :{{pickupLocation}}</h4>
+      <h4>DropLocation : {{dropLocation}}</h4>
+     <h4> Message : {{message}}</h4>
+
+
+      </div> -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="Decline()">Ok</button>
+        <!-- <button type="button" class="btn btn-primary" (click)="accept()">Yes</button> -->
+      </div>
+
+    </div>
+  </div>
+</div>

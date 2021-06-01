@@ -1,0 +1,39 @@
+@media (min-width:768px) and (max-width:991px){
+	.card-ui .card { margin-left: -10px; margin-right: -10px;}
+	.card-ui .card p{ font-size:12px;}
+	.card-ui .card-title{ font-size:14px;}
+}
+@media all and (max-width:991px){
+	.nav-btn-list .nav-link {min-width: 102px;padding: 6px 10px;	font-size: 12px;}
+	.phone-label{ font-size:12px; padding-left:0px;}
+	.navbar-light .nav-item {  margin-left: 10px;}	
+	.mb-wrap h3{ font-size:28px;}
+	.ap-btn a {  width: 140px; height: 38px;}
+	.social-links li {  margin-right: 10px;}
+	.lctn-drpdwn .dropdown-toggle{ min-width:100%;}
+}
+@media all and (max-width:767px){
+	.abt-ui h3 {font-size: 24px;line-height: 30px;	}
+	.nav-btn-list li{margin-bottom:8px;}
+	.container{ max-width:100%;}
+	.banner .navbar-collapse{position: fixed;left: 0;right: 0;top: 83px;bottom: 0px;padding-top: 20px;	TEXT-ALIGN: CENTER;BACKGROUND: RGBA(0,0,0,0.8); overflow-y:auto; padding-top:80px;}
+	.banner .navbar-toggler{POSITION: RELATIVE; Z-INDEX: 11;}
+	.bodyoverflow{ overflow:hidden;}
+	.iconbar{ height:2px; background:#fff; display:inline-block; width:100%; vertical-align:top; margin-bottom:-8px;} 
+	.iconmenu{ line-height:10px; width:100%; display:inline-block;}
+	.bnr-nvtgl{width:30px; text-align:left; padding:0px; border:none;}
+	.bnr-nvtgl:focus{ outline:none;}
+	.icn-sb2{ width:80%;}
+	.icn-sb3{ width:60%;}
+}
+@media all and (max-width:575px){
+	.social-links{ text-align:center;}
+	.ap-btn a{ margin-right:6px;}
+	.ap-btn a:last-child{ margin-right:0px;}
+	.abt-ui h3{ padding:60px 20px; }
+	.crsl-mdl{ left:0px; right:0px; top:20%; transform:none; -webkit-transform:none; -ms-transform:none; width:auto;}
+}
+@media all and (max-width:480px){
+	.crsl-mdl h2{ font-size:40px;}
+	.crsl-mdl p { font-size: 16px;}
+}

@@ -1,0 +1,115 @@
+@import '../../styles.scss';
+
+.confirm-box{
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px #30303033;
+  .confirm-box-header{
+    background: var(--green);
+    padding: 20px 20px 18px;
+    color: var(--white);
+    border-radius: 12px 12px 0 0;
+    h2{
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+  }
+  .confirm-box-body{
+    padding: 30px;
+    .profile-img-wrap{
+      .profile-img{
+        border-radius: 50%;
+        box-shadow: 0px 3px 6px #00000029;
+      }
+    }
+    .field-group{
+      position: relative;
+      padding-right: 27px;
+      margin-bottom: 0;
+      &.no-licon{
+        padding-right: 0;
+      }
+      .form-label{
+        font-size: var(--font-12);
+        color: #D6D6D6;
+        font-weight: 300;
+      }
+      .btn-icon{
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        border: none;
+        background: none;
+        width: 20px;
+        height: 18px;
+        z-index: 1;
+        box-shadow: none;
+        transition: all 0.3s ease-in-out;
+        &:focus{
+          outline: none;
+          box-shadow: none;;
+        }
+        .icon{
+          font-size: 23px;
+          color: #D6D6D6;
+        }
+        &.active,
+        &:hover{
+          .icon{
+            color: var(--green);
+          }
+        }
+      }
+      .form-control{
+        border: none;
+        font-size: var(--font-16);
+        color: var(--title-color);
+        font-weight: bold;
+        height: auto;
+        padding-left: 0;
+        &:focus{
+          box-shadow: none;
+          outline: none;
+        }
+        &:disabled{
+          background: none;
+          border: none;
+        }
+        &.text-green{
+          color: var(--green);
+        }
+      }
+    }
+
+    .driver-contact{
+      margin: 15px 0 0;
+      .driver-contact-btn{
+        padding: 15px;
+        display: inline-block;
+        font-weight: 600;
+        font-size: var(--font-16);
+        .icon{
+          color: var(--green);
+          font-size: 24px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .taxi-modal{
+      font-weight: 400;
+    }
+
+    .driver-info{
+      .driver-name{
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .confirm-box-footer{
+    padding: 0 30px 20px;
+  }
+}
